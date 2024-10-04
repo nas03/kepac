@@ -25,6 +25,7 @@ export const convertToSQL = (inputFile, outputFile) => {
 	}
 };
 
+convertToSQL('/Users/anhson/Downloads/DATA_SV/Precipitation/Radar/2020/10/01/Radar_20201001000000.tif', './output.sql')
 // Execute PostgreSQL execution file
 async function executeSqlFile(filePath) {
 	try {

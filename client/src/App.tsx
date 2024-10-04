@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
-const Comp = () => {
+/* const Comp = () => {
 	const map = useMap();
-	const legend = L.control().setPosition();
+	const legend = L.control().setPosition()
 
 	legend.onAdd = () => {
 		const div = L.DomUtil.create('div', 'info legend');
@@ -17,12 +16,13 @@ const Comp = () => {
 
 	legend.addTo(map);
 	return null;
-};
-const SimpleMap = () => {
-	const mapRef = useRef(null);
+}; */
+
+const LeafletMap = () => {
+	// const mapRef = useRef(null);
 	const latitude = 17.9459;
 	const longitude = 105.97;
-	const position = [17.9459, 105.97];
+	const position: LatLngExpression = [17.9459, 105.97];
 
 	return (
 		// Make sure you set the height and width of the map container otherwise the map won't show
@@ -45,4 +45,4 @@ const SimpleMap = () => {
 	);
 };
 
-export default SimpleMap;
+export default LeafletMap;
