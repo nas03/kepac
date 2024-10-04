@@ -9,9 +9,8 @@ export const getRasterLayer = async () => {
 	const rasterLayer = {
 		pixelValuesToColorFn: function (pixelValues: number[]) {
 			const pixelValue = pixelValues[0];
-			if (pixelValue === 0) return null;
-			if (pixelValue === -Infinity) return '#FF0000';
 			if (pixelValue > 0) return '#0000FF';
+			else return null;
 		},
 		resolution: 256,
 		opacity: 1,
