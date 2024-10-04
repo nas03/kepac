@@ -7,7 +7,7 @@ import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import { fromArrayBuffer } from 'geotiff';
 import L from 'leaflet';
 import { useEffect } from 'react';
-import { HighlightRegion } from './components';
+import { HighlightRegion, TifLayer } from './components';
 import PrecipitationLegend from './components/PrecipitationLegend';
 
 const GeoRasterLayer = () => {
@@ -15,12 +15,20 @@ const GeoRasterLayer = () => {
 
 	useEffect(() => {
 		const loadGeoTIFF = async () => {
-			const response = await fetch('https://github.com/nas03/kepac/blob/main/client/src/assets/Radar_20201001000000.tif');
+			const response = await fetch('http://localhost:3000/api/geotiff');
+
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+
+			// Read the response as an ArrayBuffer
 			const arrayBuffer = await response.arrayBuffer();
+
+			// Convert ArrayBuffer to GeoTIFF
 			const tiff = await fromArrayBuffer(arrayBuffer);
 			const image = await tiff.getImage();
 			const rasters = await image.readRasters();
-
+			console.log({ rasters });
 			const bounds = [
 				[image.getBoundingBox()[1], image.getBoundingBox()[0]],
 				[image.getBoundingBox()[3], image.getBoundingBox()[2]],
@@ -42,11 +50,10 @@ const External = () => {
 		<>
 			<PrecipitationLegend map={map} precipitation={3} />
 			<HighlightRegion map={map} />
-			{/* <TifLayer
+			<TifLayer
 				map={map}
 				url="/Users/anhson/Downloads/DATA_SV/Precipitation/Radar/2020/10/01/Radar_20201001000000.tif"
-			/> */}
-			<GeoRasterLayer />
+			/>
 		</>
 	);
 };
