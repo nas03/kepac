@@ -1,6 +1,6 @@
+import { vnGeo } from '@/data/vn-geo';
 import geojson from 'geojson';
 import L, { Layer, LeafletMouseEvent } from 'leaflet';
-import { vnGeo } from '../data/vn-geo';
 
 interface IPropsHighlightRegion {
 	map: L.Map;

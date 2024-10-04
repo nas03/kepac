@@ -1,4 +1,6 @@
+import GeoTIFFLayer from './GeoTIFFLayer';
 import HighlightRegion from './HighlightRegion';
 import PrecipitationLegend from './PrecipitationLegend';
-import { TifLayer } from './TifLayer';
-export { HighlightRegion, PrecipitationLegend, TifLayer };
+
+export { GeoTIFFLayer, HighlightRegion, PrecipitationLegend };
+

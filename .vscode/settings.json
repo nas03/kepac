@@ -5,5 +5,9 @@
         "source.addMissingImports.ts": "always",
         "source.organizeImports": "explicit",
         "source.removeUnusedImports": "explicit"
-    }
+    },
+    "cSpell.words": [
+        "georaster",
+        "geotiff"
+    ]
 }
