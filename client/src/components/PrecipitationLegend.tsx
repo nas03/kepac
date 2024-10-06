@@ -26,7 +26,7 @@ const PrecipitationLegend: React.FC<IPropsPrecipitationLegend> = ({
 				const _div = L.DomUtil.create('div', 'legend');
 				_div.innerHTML = `
 					<p>Date: ${formatToISOWithTimezone(demoTime[time / 2])}</p>
-					<p>Precipitation is: ${formatPrecipitation(precipitation)} </p>
+					<p>Precipitation: ${formatPrecipitation(precipitation)} </p>
 				`;
 				return _div;
 			}

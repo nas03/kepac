@@ -16,7 +16,6 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map }) => {
 			dashArray: '',
 			fillOpacity: 0.7,
 		});
-		console.log({ geoLay: layer });
 		layer.bringToFront();
 	};
 

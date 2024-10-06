@@ -1,6 +1,7 @@
 export const formatToISOWithTimezone = (dateInput: string) => {
 	const date = new Date(dateInput);
 	const isoString = date.toLocaleString();
+	if (isoString === 'Invalid Date') return 'None';
 	return isoString;
 };
 

@@ -18,12 +18,14 @@ const LeafletMap = () => {
 
 	const [time, setTime] = useState(0);
 	const [precipitation, setPrecipitation] = useState<number>(0);
+
 	const handleTimeChange = useCallback((newTime: number) => {
 		setTime(newTime);
 	}, []);
 	const handlePrecipitationChange = useCallback((newPrecipitation: number) => {
 		setPrecipitation(Number(newPrecipitation));
 	}, []);
+
 	const External = () => {
 		const map = useMap();
 		return (
@@ -48,7 +50,7 @@ const LeafletMap = () => {
 			<MapContainer
 				center={[latitude, longitude]}
 				zoom={7}
-				style={{ width: '100vw', height: '98vh' }}>
+				style={{ width: '100vw', height: '95vh' }}>
 				<TileLayer
 					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
