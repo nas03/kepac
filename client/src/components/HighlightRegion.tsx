@@ -16,7 +16,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map }) => {
 			dashArray: '',
 			fillOpacity: 0.7,
 		});
-
+		console.log({ geoLay: layer });
 		layer.bringToFront();
 	};
 
@@ -30,9 +30,23 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map }) => {
 			mouseout: resetHighlight,
 		});
 	};
-	L.geoJson(vnGeo, {
-		onEachFeature: onEachFeature,
-	}).addTo(map);
+
+	const addGeoJsonLayer = () => {
+		let flag = false;
+		map.eachLayer((layer) => {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			if ((layer as any).defaultOptions?.onEachFeature) {
+				flag = true;
+			}
+		});
+		if (!flag) {
+			L.geoJson(vnGeo, {
+				onEachFeature: onEachFeature,
+			}).addTo(map);
+		}
+	};
+
+	addGeoJsonLayer();
 
 	return null;
 };

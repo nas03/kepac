@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 import fs from 'fs';
 import path from 'path';
-import { Client } from 'pg';
+import pg from 'pg';
 
 // Convert .tif file to PostgreSQL query file
 export const convertToSQL = (inputFile, outputFile) => {
@@ -25,12 +25,10 @@ export const convertToSQL = (inputFile, outputFile) => {
 	}
 };
 
-// convertToSQL('/Users/anhson/Downloads/DATA_SV/Precipitation/Radar/2020/10/01/Radar_20201001000000.tif', './output.sql')
-
 // Execute PostgreSQL execution file
 async function executeSqlFile(filePath) {
 	try {
-		const client = new Client({
+		const client = new pg.Client({
 			user: 'postgres',
 			host: 'localhost',
 			database: 'postgres',
@@ -52,4 +50,8 @@ async function executeSqlFile(filePath) {
 		console.log(error);
 	}
 }
-executeSqlFile('output.sql');
+
+export const getFilename = (path) => {
+	const buffer = String(path).split('/');
+	return buffer[buffer.length - 1];
+};

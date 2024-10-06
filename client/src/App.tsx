@@ -8,41 +8,45 @@ import {
 	GeoTIFFLayer,
 	HighlightRegion,
 	PrecipitationLegend,
+	TimeSlider,
 } from '@/components';
-
-const External = () => {
-	const map = useMap();
-	return (
-		<>
-			<PrecipitationLegend map={map} precipitation={3} />
-			<HighlightRegion map={map} />
-			<GeoTIFFLayer map={map} />
-		</>
-	);
-};
+import { useCallback, useState } from 'react';
 
 const LeafletMap = () => {
 	const latitude = 17.9459;
 	const longitude = 105.97;
-	// const position: LatLngExpression = [17.9459, 105.97];
+
+	const [time, setTime] = useState(0);
+
+	const handleTimeChange = useCallback((newTime: number) => {
+		setTime(newTime);
+	}, []);
+
+	const External = () => {
+		const map = useMap();
+		return (
+			<>
+				<PrecipitationLegend map={map} precipitation={3} />
+				<HighlightRegion map={map} />
+				<GeoTIFFLayer time={time} map={map} />
+			</>
+		);
+	};
 
 	return (
-		// Make sure you set the height and width of the map container otherwise the map won't show
-		<MapContainer
-			center={[latitude, longitude]}
-			zoom={7}
-			style={{ height: '100vh', width: '100vw' }}>
-			<TileLayer
-				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-			/>
-			{/* <Marker position={position}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-			</Marker> */}
-			<External />
-		</MapContainer>
+		<>
+			<MapContainer
+				center={[latitude, longitude]}
+				zoom={7}
+				style={{ width: '100vw', height: '98vh' }}>
+				<TileLayer
+					attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+				/>
+				<External />
+			</MapContainer>
+			<TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
+		</>
 	);
 };
 

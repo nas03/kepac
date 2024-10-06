@@ -14,12 +14,17 @@ const PrecipitationLegend: React.FC<IPropsPrecipitationLegend> = ({
 
 	useLayoutEffect(() => {
 		info.onAdd = () => {
-			const _div = L.DomUtil.create('div', 'legend');
-			_div.innerHTML = `<p>Precipitation is ${precipitation} </p>`;
-			return _div;
+			const legend = document.querySelector('.legend') as HTMLElement;
+			if (!legend) {
+				const _div = L.DomUtil.create('div', 'legend');
+				_div.innerHTML = `<p>Precipitation is ${precipitation} </p>`;
+				return _div;
+			}
+			return legend;
 		};
-
-		info.addTo(map);
+		if (info) {
+			info.addTo(map);
+		}
 	}, []);
 	return null;
 };

@@ -1,4 +1,4 @@
-import geoTIFFRoute from './geotiff.route';
+import geoTIFFRoute from './geotiff.route.js';
 
 const routes = [geoTIFFRoute];
 

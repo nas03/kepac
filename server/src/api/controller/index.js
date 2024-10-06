@@ -1,3 +1,1 @@
-import * as geotiffController from './geotiff.controller';
-
-export { geotiffController };
+export * as geotiffController from './geotiff.controller.js';

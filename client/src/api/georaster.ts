@@ -1,8 +1,12 @@
 import api from '@/helper/axios';
 import parseGeoraster from 'georaster';
 
-export const getRasterLayer = async () => {
+export const getRasterLayer = async (time: string) => {
+	console.log('client', time);
 	const response = await api.get('/geotiff', {
+		params: {
+			time: time,
+		},
 		responseType: 'arraybuffer',
 	});
 	const georaster = await parseGeoraster(response.data);
@@ -13,7 +17,7 @@ export const getRasterLayer = async () => {
 			else return null;
 		},
 		resolution: 256,
-		opacity: 1,
+		opacity: 0.7,
 		georaster: georaster,
 	};
 
