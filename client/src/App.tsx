@@ -17,18 +17,28 @@ const LeafletMap = () => {
 	const longitude = 105.97;
 
 	const [time, setTime] = useState(0);
-
+	const [precipitation, setPrecipitation] = useState<number>(0);
 	const handleTimeChange = useCallback((newTime: number) => {
 		setTime(newTime);
 	}, []);
-
+	const handlePrecipitationChange = useCallback((newPrecipitation: number) => {
+		setPrecipitation(Number(newPrecipitation));
+	}, []);
 	const External = () => {
 		const map = useMap();
 		return (
 			<>
-				<PrecipitationLegend map={map} precipitation={3} />
+				<GeoTIFFLayer
+					time={time}
+					map={map}
+					onPrecipitationChange={handlePrecipitationChange}
+				/>
+				<PrecipitationLegend
+					time={time}
+					map={map}
+					precipitation={precipitation}
+				/>
 				<HighlightRegion map={map} />
-				<GeoTIFFLayer time={time} map={map} />
 			</>
 		);
 	};

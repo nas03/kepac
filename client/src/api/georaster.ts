@@ -2,7 +2,6 @@ import api from '@/helper/axios';
 import parseGeoraster from 'georaster';
 
 export const getRasterLayer = async (time: string) => {
-	console.log('client', time);
 	const response = await api.get('/geotiff', {
 		params: {
 			time: time,
@@ -21,5 +20,5 @@ export const getRasterLayer = async (time: string) => {
 		georaster: georaster,
 	};
 
-	return rasterLayer;
+	return { layer: rasterLayer, georaster: georaster };
 };

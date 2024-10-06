@@ -1,23 +1,33 @@
+import { demoTime } from '@/data/time-demo.ts';
+import {
+	formatPrecipitation,
+	formatToISOWithTimezone,
+} from '@/helper/utils.ts';
 import L from 'leaflet';
 import { useLayoutEffect } from 'react';
 
 interface IPropsPrecipitationLegend {
 	map: L.Map;
 	precipitation: number;
+	time: number;
 }
 const PrecipitationLegend: React.FC<IPropsPrecipitationLegend> = ({
 	map,
 	precipitation,
+	time,
 }) => {
-	const info = new L.Control();
-	info.setPosition('topright');
-
+	const info = new L.Control({
+		position: 'topright',
+	});
 	useLayoutEffect(() => {
 		info.onAdd = () => {
 			const legend = document.querySelector('.legend') as HTMLElement;
 			if (!legend) {
 				const _div = L.DomUtil.create('div', 'legend');
-				_div.innerHTML = `<p>Precipitation is ${precipitation} </p>`;
+				_div.innerHTML = `
+					<p>Date: ${formatToISOWithTimezone(demoTime[time / 2])}</p>
+					<p>Precipitation is: ${formatPrecipitation(precipitation)} </p>
+				`;
 				return _div;
 			}
 			return legend;
