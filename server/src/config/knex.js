@@ -8,7 +8,9 @@ const db = knex({
 		user: 'postgres',
 		password: '',
 		database: 'postgres',
+		debug: true,
 	},
+	debug: true,
 });
 
 export default db;

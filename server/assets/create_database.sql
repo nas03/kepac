@@ -4,12 +4,12 @@ CREATE TABLE precipitation
         primary key,
     file_name   varchar(255),
     path        text,
-    atime       timestamptz,
-    mtime       timestamptz,
-    ctime       timestamptz,
-    birthtime  timestamptz,
-    updated_at  timestamptz DEFAULT now(),
-    created_at  timestamptz DEFAULT now()
+    atime       timestamp,
+    mtime       timestamp,
+    ctime       timestamp,
+    birthtime  timestamp,
+    updated_at  timestamp DEFAULT now(),
+    created_at  timestamp DEFAULT now()
 );
 CREATE OR REPLACE FUNCTION update_updated_at_column()
     RETURNS TRIGGER AS $$

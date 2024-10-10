@@ -124,13 +124,33 @@ const loadSampleData = async (req, res) => {
 			files.map(async (file) => {
 				const filePath = `assets/geotiff/${file}`;
 				const fileStats = await fsPromise.stat(filePath);
+				// Extract the relevant parts of the filename
+				const year = file.split('_')[1].slice(0, 4);
+				const month = file.split('_')[1].slice(4, 6);
+				const day = file.split('_')[1].slice(6, 8);
+				const hour = file.split('_')[1].slice(8, 10);
+				const minute = file.split('_')[1].slice(10, 12);
+				const second = file.split('_')[1].slice(12, 14);
+
+				// Create a JavaScript Date object
+				const timeInfo = new Date(
+					parseInt(year),
+					parseInt(month) - 1, // Month is 0-indexed in JavaScript Date (0 for January, 11 for December)
+					parseInt(day),
+					parseInt(hour),
+					parseInt(minute),
+					parseInt(second)
+				);
+
+				// Print the extracted date and time
+				console.log('Extracted datetime:', timeInfo);
 				return {
 					file_name: file,
 					path: filePath,
 					atime: fileStats.atime,
 					mtime: fileStats.mtime,
 					ctime: fileStats.ctime,
-					birthtime: fileStats.birthtime,
+					birthtime: timeInfo,
 				};
 			})
 		);
@@ -157,4 +177,3 @@ const loadSampleData = async (req, res) => {
 	}
 };
 export { getGeneralInfo, getGeoTIFF, loadSampleData, uploadGeoTiffFile };
-

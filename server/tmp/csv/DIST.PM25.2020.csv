@@ -1,0 +1,711 @@
+time,dist_ID,Precipitation,GID_2,VARNAME_2,ENGTYPE_2
+2020-10-01,1,-inf,VNM.1.1_1,An Phu,District
+2020-10-01,2,-inf,VNM.1.2_1,Cho Moi,District
+2020-10-01,3,-inf,VNM.1.3_1,Chau Doc,City
+2020-10-01,4,-inf,VNM.1.4_1,Chau Phu,District
+2020-10-01,5,-inf,VNM.1.5_1,Chau Thanh,District
+2020-10-01,6,-inf,VNM.1.6_1,Long Xuyen,City
+2020-10-01,7,-inf,VNM.1.7_1,Phu Tan,District
+2020-10-01,8,-inf,VNM.1.8_1,Tinh Bien,District
+2020-10-01,9,-inf,VNM.1.9_1,Tan Chau,Town
+2020-10-01,10,-inf,VNM.1.10_1,Thoai Son,District
+2020-10-01,11,-inf,VNM.1.11_1,Tri Ton,District
+2020-10-01,12,-inf,VNM.2.1_1,Bac Lieu,City
+2020-10-01,13,-inf,VNM.2.2_1,Dong Hai,District
+2020-10-01,14,-inf,VNM.2.3_1,Gia Rai,Town
+2020-10-01,15,-inf,VNM.2.4_1,Hong Dan,District
+2020-10-01,16,-inf,VNM.2.5_1,Hoa Binh,District
+2020-10-01,17,-inf,VNM.2.6_1,Phuoc Long,District
+2020-10-01,18,-inf,VNM.2.7_1,Vinh Loi,District
+2020-10-01,19,-inf,VNM.3.1_1,Bac Giang,City
+2020-10-01,20,-inf,VNM.3.2_1,Hiep Hoa,District
+2020-10-01,21,-inf,VNM.3.3_1,Lang Giang,District
+2020-10-01,22,-inf,VNM.3.4_1,Luc Nam,District
+2020-10-01,23,-inf,VNM.3.5_1,Luc Ngan,District
+2020-10-01,24,-inf,VNM.3.6_1,Son Dong,District
+2020-10-01,25,-inf,VNM.3.7_1,Tan Yen,District
+2020-10-01,26,-inf,VNM.3.8_1,Viet Yen,District
+2020-10-01,27,-inf,VNM.3.9_1,Yen Dung,District
+2020-10-01,28,-inf,VNM.3.10_1,Yen The,District
+2020-10-01,29,-inf,VNM.4.1_1,Bach Thong,District
+2020-10-01,30,-inf,VNM.4.2_1,Ba Be,District
+2020-10-01,31,-inf,VNM.4.3_1,Cho Don,District
+2020-10-01,32,-inf,VNM.4.4_1,Cho Moi,District
+2020-10-01,33,-inf,VNM.4.5_1,Na Ri,District
+2020-10-01,34,-inf,VNM.4.6_1,Ngan Son,District
+2020-10-01,35,-inf,VNM.4.7_1,Pac Nam,District
+2020-10-01,36,-inf,VNM.4.8_1,Bac Kan,City
+2020-10-01,37,-inf,VNM.5.1_1,Bac Ninh,City
+2020-10-01,38,-inf,VNM.5.2_1,Gia Binh,District
+2020-10-01,39,3.3177125,VNM.5.3_1,Luong Tai,District
+2020-10-01,40,-inf,VNM.5.4_1,Que Vo,District
+2020-10-01,41,-inf,VNM.5.5_1,Tu Son,Town
+2020-10-01,42,1.5925169,VNM.5.6_1,Thuan Thanh,District
+2020-10-01,43,-inf,VNM.5.7_1,Tien Du,District
+2020-10-01,44,-inf,VNM.5.8_1,Yen Phong,District
+2020-10-01,45,-inf,VNM.6.1_1,Ben Tre,City
+2020-10-01,46,-inf,VNM.6.2_1,Ba Tri,District
+2020-10-01,47,-inf,VNM.6.3_1,Binh Dai,District
+2020-10-01,48,-inf,VNM.6.4_1,Cho Lach,District
+2020-10-01,49,-inf,VNM.6.5_1,Chau Thanh,District
+2020-10-01,50,-inf,VNM.6.6_1,Giong Trom,District
+2020-10-01,51,-inf,VNM.6.7_1,Mo Cay Bac,District
+2020-10-01,52,-inf,VNM.6.8_1,Mo Cay Nam,District
+2020-10-01,53,-inf,VNM.6.9_1,Thanh Phu,District
+2020-10-01,54,-inf,VNM.7.1_1,Ba Ria,City
+2020-10-01,55,-inf,VNM.7.2_1,Chau Duc,District
+2020-10-01,56,-inf,VNM.7.3_1,Dat Do,District
+2020-10-01,57,-inf,VNM.7.4_1,Long Dien,District
+2020-10-01,58,-inf,VNM.7.5_1,Tan Thanh,District
+2020-10-01,59,-inf,VNM.7.6_1,Vung Tau,City
+2020-10-01,60,-inf,VNM.7.7_1,Xuyen Moc,District
+2020-10-01,61,-inf,VNM.8.1_1,An Lao,District
+2020-10-01,62,-inf,VNM.8.2_1,An Nhon,Town
+2020-10-01,63,-inf,VNM.8.3_1,Hoai An,District
+2020-10-01,64,-inf,VNM.8.4_1,Hoai Nhon,District
+2020-10-01,65,-inf,VNM.8.5_1,Phu Cat,District
+2020-10-01,66,-inf,VNM.8.6_1,Phu My,District
+2020-10-01,67,-inf,VNM.8.7_1,Qui Nhon,City
+2020-10-01,68,-inf,VNM.8.8_1,Tay Son,District
+2020-10-01,69,-inf,VNM.8.9_1,Tuy Phuoc,District
+2020-10-01,70,-inf,VNM.8.10_1,Van Canh,District
+2020-10-01,71,-inf,VNM.8.11_1,Vinh Thanh,District
+2020-10-01,72,-inf,VNM.9.1_1,Bac Tan Uyen,District
+2020-10-01,73,-inf,VNM.9.2_1,Ben Cat,Town
+2020-10-01,74,-inf,VNM.9.3_1,Bau Bang,District
+2020-10-01,75,-inf,VNM.9.4_1,Dau Tieng,District
+2020-10-01,76,-inf,VNM.9.5_1,Di An,Town
+2020-10-01,77,-inf,VNM.9.6_1,Phu Giao,District
+2020-10-01,78,-inf,VNM.9.7_1,Tan Uyen,Town
+2020-10-01,79,-inf,VNM.9.8_1,Thu Dau Mot,City
+2020-10-01,80,-inf,VNM.9.9_1,Thuan An,Town
+2020-10-01,81,-inf,VNM.10.1_1,Binh Long,Town
+2020-10-01,82,-inf,VNM.10.2_1,Bu Dop,District
+2020-10-01,83,-inf,VNM.10.3_1,Bu Dang,District
+2020-10-01,84,-inf,VNM.10.4_1,Bu Gia Map,District
+2020-10-01,85,-inf,VNM.10.5_1,Chon Thanh,District
+2020-10-01,86,-inf,VNM.10.6_1,Dong Phu,District
+2020-10-01,87,-inf,VNM.10.7_1,Dong Xoai,Town
+2020-10-01,88,-inf,VNM.10.8_1,Hon Quan,District
+2020-10-01,89,-inf,VNM.10.9_1,Loc Ninh,District
+2020-10-01,90,-inf,VNM.10.10_1,Phu Rieng,District
+2020-10-01,91,-inf,VNM.10.11_1,Phuoc Long,Town
+2020-10-01,92,-inf,VNM.11.1_1,Bac Binh,District
+2020-10-01,93,-inf,VNM.11.2_1,Duc Linh,District
+2020-10-01,94,-inf,VNM.11.3_1,Ham Tan,District
+2020-10-01,95,-inf,VNM.11.4_1,Ham Thuan Bac,District
+2020-10-01,96,-inf,VNM.11.5_1,Ham Thuan Nam,District
+2020-10-01,97,-inf,VNM.11.6_1,La Gi,Town
+2020-10-01,98,-inf,VNM.11.7_1,Phan Thiet,City
+2020-10-01,99,-inf,VNM.11.8_1,Phu Qui,District
+2020-10-01,100,-inf,VNM.11.9_1,Tanh Linh,District
+2020-10-01,101,-inf,VNM.11.10_1,Tuy Phong,District
+2020-10-01,102,-inf,VNM.12.1_1,Binh Thuy,Urban District
+2020-10-01,103,-inf,VNM.12.2_1,Co Do,District
+2020-10-01,104,-inf,VNM.12.3_1,Cai Rang,Urban District
+2020-10-01,105,-inf,VNM.12.4_1,Ninh Kieu,Urban District
+2020-10-01,106,-inf,VNM.12.5_1,O Mon,Urban District
+2020-10-01,107,-inf,VNM.12.6_1,Phong Dien,District
+2020-10-01,108,-inf,VNM.12.7_1,Thot Not,Urban District
+2020-10-01,109,-inf,VNM.12.8_1,Thoi Lai,District
+2020-10-01,110,-inf,VNM.12.9_1,Vinh Thanh,District
+2020-10-01,111,-inf,VNM.13.1_1,Ca Mau,City
+2020-10-01,112,-inf,VNM.13.2_1,Cai Nuoc,District
+2020-10-01,113,-inf,VNM.13.3_1,Dam Doi,District
+2020-10-01,114,-inf,VNM.13.4_1,Nam Can,District
+2020-10-01,115,-inf,VNM.13.5_1,Ngoc Hien,District
+2020-10-01,116,-inf,VNM.13.6_1,Phu Tan,District
+2020-10-01,117,-inf,VNM.13.7_1,Thoi Binh,District
+2020-10-01,118,-inf,VNM.13.8_1,Tran Van Thoi,District
+2020-10-01,119,-inf,VNM.13.9_1,U Minh,District
+2020-10-01,120,-inf,VNM.14.1_1,Bao Lac,District
+2020-10-01,121,-inf,VNM.14.2_1,Bao Lam,District
+2020-10-01,122,-inf,VNM.14.3_1,Cao Bang,City
+2020-10-01,123,-inf,VNM.14.4_1,Ha Lang,District
+2020-10-01,124,-inf,VNM.14.5_1,Ha Quang,District
+2020-10-01,125,-inf,VNM.14.6_1,Hoa An,District
+2020-10-01,126,-inf,VNM.14.7_1,Nguyen Binh,District
+2020-10-01,127,-inf,VNM.14.8_1,Phuc Hoa,District
+2020-10-01,128,-inf,VNM.14.9_1,Quang Uyen,District
+2020-10-01,129,-inf,VNM.14.10_1,Thach An,District
+2020-10-01,130,-inf,VNM.14.11_1,Thong Nong,District
+2020-10-01,131,-inf,VNM.14.12_1,Tra Linh,District
+2020-10-01,132,-inf,VNM.14.13_1,Trung Khanh,District
+2020-10-01,133,-inf,VNM.15.1_1,Buon Don,District
+2020-10-01,134,-inf,VNM.15.2_1,Buon Ma Thuot,City
+2020-10-01,135,-inf,VNM.15.3_1,Cu Kuin,District
+2020-10-01,136,-inf,VNM.15.4_1,Cu M'gar,District
+2020-10-01,137,-inf,VNM.15.5_1,Ea H'leo,District
+2020-10-01,138,-inf,VNM.15.6_1,Ea Kar,District
+2020-10-01,139,-inf,VNM.15.7_1,Ea Sup,District
+2020-10-01,140,-inf,VNM.15.8_1,Krong A Na,District
+2020-10-01,141,-inf,VNM.15.9_1,Krong Bong,District
+2020-10-01,142,-inf,VNM.15.10_1,Krong Buk,District
+2020-10-01,143,-inf,VNM.15.11_1,Krong Nang,District
+2020-10-01,144,-inf,VNM.15.12_1,Krong Pac,District
+2020-10-01,145,-inf,VNM.15.13_1,Lak,District
+2020-10-01,146,-inf,VNM.15.14_1,M'Drak,District
+2020-10-01,147,-inf,VNM.15.15_1,Buon Ho,Town
+2020-10-01,148,-inf,VNM.16.1_1,Cu Jut,District
+2020-10-01,149,-inf,VNM.16.2_1,Dak Mil,District
+2020-10-01,150,-inf,VNM.16.3_1,Dak R'Lap,District
+2020-10-01,151,-inf,VNM.16.4_1,Dak Song,District
+2020-10-01,152,-inf,VNM.16.5_1,Dak Glong,District
+2020-10-01,153,-inf,VNM.16.6_1,Gia Nghia,Town
+2020-10-01,154,-inf,VNM.16.7_1,Krong No,District
+2020-10-01,155,-inf,VNM.16.8_1,Tuy Duc,District
+2020-10-01,156,-inf,VNM.17.1_1,Bien Hoa,City
+2020-10-01,157,-inf,VNM.17.2_1,Cam My,District
+2020-10-01,158,-inf,VNM.17.3_1,Dinh Quan,District
+2020-10-01,159,-inf,VNM.17.4_1,Long Khanh,Town
+2020-10-01,160,-inf,VNM.17.5_1,Long Thanh,District
+2020-10-01,161,-inf,VNM.17.6_1,Nhon Trach,District
+2020-10-01,162,-inf,VNM.17.7_1,Tan Phu,District
+2020-10-01,163,-inf,VNM.17.8_1,Thong Nhat,District
+2020-10-01,164,-inf,VNM.17.9_1,Trang Bom,District
+2020-10-01,165,-inf,VNM.17.10_1,Vinh Cuu,District
+2020-10-01,166,-inf,VNM.17.11_1,Xuan Loc,District
+2020-10-01,167,-inf,VNM.18.2_1,Cao Lanh,District
+2020-10-01,168,-inf,VNM.18.1_1,Cao Lanh,City
+2020-10-01,169,-inf,VNM.18.3_1,Chau Thanh,District
+2020-10-01,170,-inf,VNM.18.5_1,Hong Ngu,District
+2020-10-01,171,-inf,VNM.18.4_1,Hong Ngu,Town
+2020-10-01,172,-inf,VNM.18.6_1,Lap Vo,District
+2020-10-01,173,-inf,VNM.18.7_1,Lai Vung,District
+2020-10-01,174,-inf,VNM.18.8_1,Sa Dec,City
+2020-10-01,175,-inf,VNM.18.9_1,Tam Nong,District
+2020-10-01,176,-inf,VNM.18.10_1,Tan Hong,District
+2020-10-01,177,-inf,VNM.18.11_1,Thanh Binh,District
+2020-10-01,178,-inf,VNM.18.12_1,Thap Muoi,District
+2020-10-01,179,-inf,VNM.19.1_1,Cam Le,Urban District
+2020-10-01,180,-inf,VNM.19.2_1,Hai Chau,Urban District
+2020-10-01,181,-inf,VNM.19.3_1,Hoa Vang,District
+2020-10-01,182,-inf,VNM.19.4_1,Lien Chieu,Urban District
+2020-10-01,183,-inf,VNM.19.5_1,Ngu Hanh Son,Urban District
+2020-10-01,184,-inf,VNM.19.6_1,Son Tra,Urban District
+2020-10-01,185,-inf,VNM.19.7_1,Thanh Khe,Urban District
+2020-10-01,186,-inf,VNM.20.3_1,Dien Bien,District
+2020-10-01,187,-inf,VNM.20.1_1,Dien Bien Dong,District
+2020-10-01,188,-inf,VNM.20.2_1,Dien Bien Phu,City
+2020-10-01,189,-inf,VNM.20.4_1,Muong Ang,District
+2020-10-01,190,-inf,VNM.20.5_1,Muong Cha,District
+2020-10-01,191,-inf,VNM.20.6_1,Muong Nhe,District
+2020-10-01,192,-inf,VNM.20.7_1,Nam Po,District
+2020-10-01,193,-inf,VNM.20.8_1,Tua Chua,District
+2020-10-01,194,-inf,VNM.20.9_1,Muong Lay,Town
+2020-10-01,195,-inf,VNM.20.10_1,Tuan Giao,District
+2020-10-01,196,-inf,VNM.21.1_1,An Khe,Town
+2020-10-01,197,-inf,VNM.21.2_1,Ayun Pa,Town
+2020-10-01,198,-inf,VNM.21.3_1,Chu Pah,District
+2020-10-01,199,-inf,VNM.21.4_1,Chu Prong,District
+2020-10-01,200,-inf,VNM.21.5_1,Chu Puh,District
+2020-10-01,201,-inf,VNM.21.6_1,Chu Se,District
+2020-10-01,202,-inf,VNM.21.7_1,Duc Co,District
+2020-10-01,203,-inf,VNM.21.8_1,Dak Doa,District
+2020-10-01,204,-inf,VNM.21.9_1,Dak Po,District
+2020-10-01,205,-inf,VNM.21.10_1,Ia Grai,District
+2020-10-01,206,-inf,VNM.21.11_1,Ia Pa,District
+2020-10-01,207,-inf,VNM.21.12_1,KBang,District
+2020-10-01,208,-inf,VNM.21.13_1,Kong Chro,District
+2020-10-01,209,-inf,VNM.21.14_1,Krong Pa,District
+2020-10-01,210,-inf,VNM.21.15_1,Mang Yang,District
+2020-10-01,211,-inf,VNM.21.16_1,Phu Thien,District
+2020-10-01,212,-inf,VNM.21.17_1,Pleiku,City
+2020-10-01,213,2.5512447,VNM.22.1_1,Binh Giang,District
+2020-10-01,214,2.196514,VNM.22.2_1,Cam Giang,District
+2020-10-01,215,-inf,VNM.22.3_1,Chi Linh,Town
+2020-10-01,216,4.02076,VNM.22.4_1,Gia Loc,District
+2020-10-01,217,10.2147665,VNM.22.5_1,Hai Duong,City
+2020-10-01,218,3.0697873,VNM.22.6_1,Kim Thanh,District
+2020-10-01,219,0.18133155,VNM.22.7_1,Kinh Mon,District
+2020-10-01,220,12.2469635,VNM.22.8_1,Nam Sach,District
+2020-10-01,221,11.710212,VNM.22.9_1,Ninh Giang,District
+2020-10-01,222,17.811962,VNM.22.10_1,Tu Ky,District
+2020-10-01,223,9.840805,VNM.22.11_1,Thanh Ha,District
+2020-10-01,224,3.2324498,VNM.22.12_1,Thanh Mien,District
+2020-10-01,225,2.365821,VNM.23.1_1,An Duong,District
+2020-10-01,226,9.544604,VNM.23.2_1,An Lao,District
+2020-10-01,227,1.0394957,VNM.23.3_1,Bach Long Vi,District
+2020-10-01,228,0.0351967,VNM.23.4_1,Cat Hai,District
+2020-10-01,229,6.618492,VNM.23.5_1,Do Son,Urban District
+2020-10-01,230,8.504962,VNM.23.6_1,Duong Kinh,Urban District
+2020-10-01,231,1.1876667,VNM.23.7_1,Hai An,Urban District
+2020-10-01,232,2.418436,VNM.23.8_1,Hong Bang,Urban District
+2020-10-01,233,8.215569,VNM.23.9_1,Kien An,Urban District
+2020-10-01,234,16.932087,VNM.23.10_1,Kien Thuy,District
+2020-10-01,235,3.483159,VNM.23.11_1,Le Chan,Urban District
+2020-10-01,236,2.2476473,VNM.23.12_1,Ngo Quyen,Urban District
+2020-10-01,237,1.1493728,VNM.23.13_1,Thuy Nguyen,District
+2020-10-01,238,10.278322,VNM.23.14_1,Tien Lang,District
+2020-10-01,239,9.824947,VNM.23.15_1,Vinh Bao,District
+2020-10-01,240,-inf,VNM.24.2_1,Chau Thanh,District
+2020-10-01,241,-inf,VNM.24.1_1,Chau Thanh A,District
+2020-10-01,242,-inf,VNM.24.4_1,Long My,District
+2020-10-01,243,-inf,VNM.24.3_1,Long My,Town
+2020-10-01,244,-inf,VNM.24.5_1,Nga Bay,Town
+2020-10-01,245,-inf,VNM.24.6_1,Phung Hiep,District
+2020-10-01,246,-inf,VNM.24.7_1,Vi Thanh,City
+2020-10-01,247,-inf,VNM.24.8_1,Vi Thuy,District
+2020-10-01,248,-inf,VNM.25.1_1,Binh Chanh,District
+2020-10-01,249,-inf,VNM.25.2_1,Binh Tan,Urban District
+2020-10-01,250,-inf,VNM.25.3_1,Binh Thanh,Urban District
+2020-10-01,251,-inf,VNM.25.4_1,Can Gio,District
+2020-10-01,252,-inf,VNM.25.5_1,Cu Chi,District
+2020-10-01,253,-inf,VNM.25.6_1,Go Vap,Urban District
+2020-10-01,254,-inf,VNM.25.7_1,Hoc Mon,District
+2020-10-01,255,-inf,VNM.25.8_1,Nha Be,District
+2020-10-01,256,-inf,VNM.25.9_1,Phu Nhuan,Urban District
+2020-10-01,257,-inf,VNM.25.13_1,District 1,Urban District
+2020-10-01,258,-inf,VNM.25.10_1,District 10,Urban District
+2020-10-01,259,-inf,VNM.25.11_1,District 11,Urban District
+2020-10-01,260,-inf,VNM.25.12_1,District 12,Urban District
+2020-10-01,261,-inf,VNM.25.14_1,District 2,Urban District
+2020-10-01,262,-inf,VNM.25.15_1,District 3,Urban District
+2020-10-01,263,-inf,VNM.25.16_1,District 4,Urban District
+2020-10-01,264,-inf,VNM.25.17_1,District 5,Urban District
+2020-10-01,265,-inf,VNM.25.18_1,District 6,Urban District
+2020-10-01,266,-inf,VNM.25.19_1,District 7,Urban District
+2020-10-01,267,-inf,VNM.25.20_1,District 8,Urban District
+2020-10-01,268,-inf,VNM.25.21_1,District 9,Urban District
+2020-10-01,269,-inf,VNM.25.22_1,Tan Binh,Urban District
+2020-10-01,270,-inf,VNM.25.23_1,Tan Phu,Urban District
+2020-10-01,271,-inf,VNM.25.24_1,Thu Duc,Urban District
+2020-10-01,272,-inf,VNM.26.1_1,Bac Me,District
+2020-10-01,273,-inf,VNM.26.2_1,Bac Quang,District
+2020-10-01,274,-inf,VNM.26.3_1,Dong Van,District
+2020-10-01,275,-inf,VNM.26.4_1,Ha Giang,City
+2020-10-01,276,-inf,VNM.26.5_1,Hoang Su Phi,District
+2020-10-01,277,-inf,VNM.26.6_1,Meo Vac,District
+2020-10-01,278,-inf,VNM.26.7_1,Quan Ba,District
+2020-10-01,279,-inf,VNM.26.8_1,Quang Binh,District
+2020-10-01,280,-inf,VNM.26.9_1,Vi Xuyen,District
+2020-10-01,281,-inf,VNM.26.10_1,Xin Man,District
+2020-10-01,282,-inf,VNM.26.11_1,Yen Minh,District
+2020-10-01,283,1.4251287,VNM.27.1_1,Ung Hoa,District
+2020-10-01,284,-inf,VNM.27.2_1,Bac Tu Liem,Urban District
+2020-10-01,285,2.8441634,VNM.27.3_1,Ba Dinh,Urban District
+2020-10-01,286,-inf,VNM.27.4_1,Ba Vi,District
+2020-10-01,287,3.5434248,VNM.27.5_1,Cau Giay,Urban District
+2020-10-01,288,1.4823905,VNM.27.6_1,Chuong My,District
+2020-10-01,289,3.0493262,VNM.27.7_1,Dong Da,Urban District
+2020-10-01,290,-inf,VNM.27.8_1,Dan Phuong,District
+2020-10-01,291,-inf,VNM.27.9_1,Dong Anh,District
+2020-10-01,292,-inf,VNM.27.10_1,Gia Lam,District
+2020-10-01,293,1.7741888,VNM.27.11_1,Ha Dong,Urban District
+2020-10-01,294,2.5716977,VNM.27.12_1,Hai Ba Trung,Urban District
+2020-10-01,295,3.5323498,VNM.27.13_1,Hoai Duc,District
+2020-10-01,296,2.6162753,VNM.27.14_1,Hoan Kiem,Urban District
+2020-10-01,297,2.277455,VNM.27.15_1,Hoang Mai,Urban District
+2020-10-01,298,2.5687485,VNM.27.16_1,Long Bien,Urban District
+2020-10-01,299,1.2003543,VNM.27.17_1,My Duc,District
+2020-10-01,300,-inf,VNM.27.18_1,Me Linh,District
+2020-10-01,301,3.5951252,VNM.27.19_1,Nam Tu Liem,Urban District
+2020-10-01,302,3.036095,VNM.27.20_1,Phu Xuyen,District
+2020-10-01,303,-inf,VNM.27.21_1,Phuc Tho,District
+2020-10-01,304,1.339686,VNM.27.22_1,Quoc Oai,District
+2020-10-01,305,-inf,VNM.27.23_1,Soc Son,District
+2020-10-01,306,-inf,VNM.27.24_1,Son Tay,Town
+2020-10-01,307,-inf,VNM.27.25_1,Tay Ho,Urban District
+2020-10-01,308,1.8654333,VNM.27.26_1,Thach That,District
+2020-10-01,309,2.2617123,VNM.27.27_1,Thanh Oai,District
+2020-10-01,310,1.8530151,VNM.27.28_1,Thanh Tri,District
+2020-10-01,311,3.1239882,VNM.27.29_1,Thanh Xuan,Urban District
+2020-10-01,312,2.7758133,VNM.27.30_1,Thuong Tin,District
+2020-10-01,313,2.8818684,VNM.28.1_1,Binh Luc,District
+2020-10-01,314,2.9053953,VNM.28.2_1,Duy Tien,District
+2020-10-01,315,0.64881206,VNM.28.3_1,Kim Bang,District
+2020-10-01,316,4.0869584,VNM.28.4_1,Ly Nhan,District
+2020-10-01,317,1.4444511,VNM.28.5_1,Phu Ly,City
+2020-10-01,318,0.43585947,VNM.28.6_1,Thanh Liem,District
+2020-10-01,319,0.0,VNM.29.1_1,Cam Xuyen,District
+2020-10-01,320,6.7948335e-05,VNM.29.2_1,Can Loc,District
+2020-10-01,321,0.0,VNM.29.3_1,Duc Tho,District
+2020-10-01,322,0.0,VNM.29.4_1,Hong Linh,Town
+2020-10-01,323,0.0,VNM.29.5_1,Ha Tinh,City
+2020-10-01,324,0.0,VNM.29.6_1,Huong Khe,District
+2020-10-01,325,0.0,VNM.29.7_1,Huong Son,District
+2020-10-01,326,0.0,VNM.29.9_1,Ky Anh,District
+2020-10-01,327,0.0,VNM.29.8_1,Ky Anh,Town
+2020-10-01,328,0.00029052317,VNM.29.10_1,Loc Ha,District
+2020-10-01,329,0.0058696554,VNM.29.11_1,Nghi Xuan,District
+2020-10-01,330,2.0409178e-05,VNM.29.12_1,Thach Ha,District
+2020-10-01,331,0.0,VNM.29.13_1,Vu Quang,District
+2020-10-01,332,0.042851783,VNM.30.1_1,Cao Phong,District
+2020-10-01,333,-inf,VNM.30.2_1,Da Bac,District
+2020-10-01,334,0.16083977,VNM.30.3_1,Hoa Binh,City
+2020-10-01,335,0.35170627,VNM.30.4_1,Ky Son,District
+2020-10-01,336,0.24974567,VNM.30.5_1,Kim Boi,District
+2020-10-01,337,0.009793856,VNM.30.6_1,Lac Son,District
+2020-10-01,338,0.13117482,VNM.30.7_1,Lac Thuy,District
+2020-10-01,339,0.5673984,VNM.30.8_1,Luong Son,District
+2020-10-01,340,0.0,VNM.30.9_1,Mai Chau,District
+2020-10-01,341,0.0,VNM.30.10_1,Tan Lac,District
+2020-10-01,342,0.03328161,VNM.30.11_1,Yen Thuy,District
+2020-10-01,343,4.213859,VNM.31.1_1,An Thi,District
+2020-10-01,344,5.0182304,VNM.31.2_1,Hung Yen,City
+2020-10-01,345,2.9723837,VNM.31.3_1,Khoai Chau,District
+2020-10-01,346,3.9807112,VNM.31.4_1,Kim Dong,District
+2020-10-01,347,3.231571,VNM.31.5_1,My Hao,District
+2020-10-01,348,4.301455,VNM.31.6_1,Phu Cu,District
+2020-10-01,349,4.817989,VNM.31.7_1,Tien Lu,District
+2020-10-01,350,2.2988262,VNM.31.8_1,Van Giang,District
+2020-10-01,351,2.7429826,VNM.31.9_1,Van Lam,District
+2020-10-01,352,3.3506703,VNM.31.10_1,Yen My,District
+2020-10-01,353,-inf,VNM.32.1_1,Cam Lam,District
+2020-10-01,354,-inf,VNM.32.2_1,Cam Ranh,City
+2020-10-01,355,-inf,VNM.32.3_1,Dien Khanh,District
+2020-10-01,356,-inf,VNM.32.4_1,Khanh Son,District
+2020-10-01,357,-inf,VNM.32.5_1,Khanh Vinh,District
+2020-10-01,358,-inf,VNM.32.6_1,Nha Trang,City
+2020-10-01,359,-inf,VNM.32.7_1,Ninh Hoa,Town
+2020-10-01,360,-inf,VNM.32.8_1,Van Ninh,District
+2020-10-01,361,-inf,VNM.33.1_1,An Bien,District
+2020-10-01,362,-inf,VNM.33.2_1,An Minh,District
+2020-10-01,363,-inf,VNM.33.3_1,Chau Thanh,District
+2020-10-01,364,-inf,VNM.33.4_1,Giong Rieng,District
+2020-10-01,365,-inf,VNM.33.5_1,Giang Thanh,District
+2020-10-01,366,-inf,VNM.33.6_1,Go Quao,District
+2020-10-01,367,-inf,VNM.33.7_1,Ha Tien,Town
+2020-10-01,368,-inf,VNM.33.8_1,Hon Dat,District
+2020-10-01,369,-inf,VNM.33.9_1,Kien Hai,District
+2020-10-01,370,-inf,VNM.33.10_1,Kien Luong,District
+2020-10-01,371,-inf,VNM.33.11_1,Phu Quoc,District
+2020-10-01,372,-inf,VNM.33.12_1,Rach Gia,City
+2020-10-01,373,-inf,VNM.33.13_1,Tan Hiep,District
+2020-10-01,374,-inf,VNM.33.14_1,U Minh Thuong,District
+2020-10-01,375,-inf,VNM.33.15_1,Vinh Thuan,District
+2020-10-01,376,-inf,VNM.34.1_1,Dak Glei,District
+2020-10-01,377,-inf,VNM.34.2_1,Dak Ha,District
+2020-10-01,378,-inf,VNM.34.3_1,Dak To,District
+2020-10-01,379,-inf,VNM.34.4_1,Ia H' Drai,District
+2020-10-01,380,-inf,VNM.34.5_1,Kon Plong,District
+2020-10-01,381,-inf,VNM.34.6_1,Kon Ray,District
+2020-10-01,382,-inf,VNM.34.7_1,Kon Tum,City
+2020-10-01,383,-inf,VNM.34.8_1,Ngoc Hoi,District
+2020-10-01,384,-inf,VNM.34.9_1,Sa Thay,District
+2020-10-01,385,-inf,VNM.34.10_1,Tu Mo Rong,District
+2020-10-01,386,-inf,VNM.35.1_1,Bac Son,District
+2020-10-01,387,-inf,VNM.35.2_1,Binh Gia,District
+2020-10-01,388,-inf,VNM.35.3_1,Cao Loc,District
+2020-10-01,389,-inf,VNM.35.4_1,Chi Lang,District
+2020-10-01,390,-inf,VNM.35.5_1,Dinh Lap,District
+2020-10-01,391,-inf,VNM.35.6_1,Huu Lung,District
+2020-10-01,392,-inf,VNM.35.7_1,Lang Son,City
+2020-10-01,393,-inf,VNM.35.8_1,Loc Binh,District
+2020-10-01,394,-inf,VNM.35.9_1,Trang Dinh,District
+2020-10-01,395,-inf,VNM.35.10_1,Van Lang,District
+2020-10-01,396,-inf,VNM.35.11_1,Van Quan,District
+2020-10-01,397,-inf,VNM.36.1_1,Lai Chau,City
+2020-10-01,398,-inf,VNM.36.2_1,Muong Te,District
+2020-10-01,399,-inf,VNM.36.3_1,Nam Nhun,District
+2020-10-01,400,-inf,VNM.36.4_1,Phong Tho,District
+2020-10-01,401,-inf,VNM.36.5_1,Sin Ho,District
+2020-10-01,402,-inf,VNM.36.6_1,Tam Duong,District
+2020-10-01,403,-inf,VNM.36.7_1,Tan Uyen,District
+2020-10-01,404,-inf,VNM.36.8_1,Than Uyen,District
+2020-10-01,405,-inf,VNM.37.1_1,Bao Loc,City
+2020-10-01,406,-inf,VNM.37.2_1,Bao Lam,District
+2020-10-01,407,-inf,VNM.37.3_1,Cat Tien,District
+2020-10-01,408,-inf,VNM.37.4_1,Da Huoai,District
+2020-10-01,409,-inf,VNM.37.5_1,Da Teh,District
+2020-10-01,410,-inf,VNM.37.6_1,Duc Trong,District
+2020-10-01,411,-inf,VNM.37.7_1,Da Lat,City
+2020-10-01,412,-inf,VNM.37.8_1,Dam Rong,District
+2020-10-01,413,-inf,VNM.37.9_1,Di Linh,District
+2020-10-01,414,-inf,VNM.37.10_1,Don Duong,District
+2020-10-01,415,-inf,VNM.37.11_1,Lac Duong,District
+2020-10-01,416,-inf,VNM.37.12_1,Lam Ha,District
+2020-10-01,417,-inf,VNM.38.1_1,Bao Thang,District
+2020-10-01,418,-inf,VNM.38.2_1,Bao Yen,District
+2020-10-01,419,-inf,VNM.38.3_1,Bac Ha,District
+2020-10-01,420,-inf,VNM.38.4_1,Bat Xat,District
+2020-10-01,421,-inf,VNM.38.5_1,Lao Cai,City
+2020-10-01,422,-inf,VNM.38.6_1,Muong Khuong,District
+2020-10-01,423,-inf,VNM.38.7_1,Sa Pa,District
+2020-10-01,424,-inf,VNM.38.8_1,Si Ma Cai,District
+2020-10-01,425,-inf,VNM.38.9_1,Van Ban,District
+2020-10-01,426,-inf,VNM.39.1_1,Ben Luc,District
+2020-10-01,427,-inf,VNM.39.2_1,Can Duoc,District
+2020-10-01,428,-inf,VNM.39.3_1,Can Giuoc,District
+2020-10-01,429,-inf,VNM.39.4_1,Chau Thanh,District
+2020-10-01,430,-inf,VNM.39.5_1,Duc Hoa,District
+2020-10-01,431,-inf,VNM.39.6_1,Duc Hue,District
+2020-10-01,432,-inf,VNM.39.7_1,Kien Tuong,Town
+2020-10-01,433,-inf,VNM.39.8_1,Moc Hoa,District
+2020-10-01,434,-inf,VNM.39.9_1,Tan An,City
+2020-10-01,435,-inf,VNM.39.10_1,Tan Hung,District
+2020-10-01,436,-inf,VNM.39.11_1,Tan Thanh,District
+2020-10-01,437,-inf,VNM.39.12_1,Tan Tru,District
+2020-10-01,438,-inf,VNM.39.13_1,Thanh Hoa,District
+2020-10-01,439,-inf,VNM.39.14_1,Thu Thua,District
+2020-10-01,440,-inf,VNM.39.15_1,Vinh Hung,District
+2020-10-01,441,1.7838182,VNM.40.1_1,Giao Thuy,District
+2020-10-01,442,6.138182,VNM.40.2_1,Hai Hau,District
+2020-10-01,443,3.2023144,VNM.40.3_1,My Loc,District
+2020-10-01,444,2.6802673,VNM.40.4_1,Nam Dinh,City
+2020-10-01,445,1.0916078,VNM.40.5_1,Nam Truc,District
+2020-10-01,446,0.8529844,VNM.40.6_1,Nghia Hung,District
+2020-10-01,447,1.2907786,VNM.40.7_1,Truc Ninh,District
+2020-10-01,448,4.5618057,VNM.40.8_1,Vu Ban,District
+2020-10-01,449,1.5921851,VNM.40.9_1,Xuan Truong,District
+2020-10-01,450,1.9965812,VNM.40.10_1,Y Yen,District
+2020-10-01,451,0.0,VNM.41.1_1,Anh Son,District
+2020-10-01,452,0.0,VNM.41.2_1,Cua Lo,Town
+2020-10-01,453,0.00013257348,VNM.41.3_1,Con Cuong,District
+2020-10-01,454,0.0,VNM.41.4_1,Dien Chau,District
+2020-10-01,455,0.0,VNM.41.5_1,Do Luong,District
+2020-10-01,456,0.034797926,VNM.41.6_1,Hoang Mai,Town
+2020-10-01,457,0.0031766314,VNM.41.7_1,Hung Nguyen,District
+2020-10-01,458,0.0,VNM.41.8_1,Ky Son,District
+2020-10-01,459,0.0,VNM.41.9_1,Nam Dan,District
+2020-10-01,460,0.0,VNM.41.10_1,Nghi Loc,District
+2020-10-01,461,0.0014424413,VNM.41.11_1,Nghia Dan,District
+2020-10-01,462,0.0,VNM.41.12_1,Que Phong,District
+2020-10-01,463,0.0,VNM.41.13_1,Quy Chau,District
+2020-10-01,464,0.0,VNM.41.14_1,Quy Hop,District
+2020-10-01,465,0.004198397,VNM.41.15_1,Quynh Luu,District
+2020-10-01,466,0.0,VNM.41.16_1,Tan Ky,District
+2020-10-01,467,0.0,VNM.41.17_1,Thai Hoa,Town
+2020-10-01,468,0.0,VNM.41.18_1,Thanh Chuong,District
+2020-10-01,469,0.0,VNM.41.19_1,Tuong Duong,District
+2020-10-01,470,0.005198753,VNM.41.20_1,Vinh,City
+2020-10-01,471,0.0,VNM.41.21_1,Yen Thanh,District
+2020-10-01,472,0.84604234,VNM.42.1_1,Gia Vien,District
+2020-10-01,473,3.2120428,VNM.42.2_1,Hoa Lu,District
+2020-10-01,474,0.21055987,VNM.42.3_1,Kim Son,District
+2020-10-01,475,0.71317,VNM.42.4_1,Nho Quan,District
+2020-10-01,476,1.6957799,VNM.42.5_1,Ninh Binh,City
+2020-10-01,477,1.2279199,VNM.42.6_1,Tam Diep,City
+2020-10-01,478,1.050586,VNM.42.7_1,Yen Khanh,District
+2020-10-01,479,0.13999857,VNM.42.8_1,Yen Mo,District
+2020-10-01,480,-inf,VNM.43.1_1,Bac Ai,District
+2020-10-01,481,-inf,VNM.43.2_1,Ninh Hai,District
+2020-10-01,482,-inf,VNM.43.3_1,Ninh Phuoc,District
+2020-10-01,483,-inf,VNM.43.4_1,Ninh Son,District
+2020-10-01,484,-inf,VNM.43.5_1,Phan Rang-Thap Cham,City
+2020-10-01,485,-inf,VNM.43.6_1,Thuan Bac,District
+2020-10-01,486,-inf,VNM.43.7_1,Thuan Nam,District
+2020-10-01,487,-inf,VNM.44.1_1,Cam Khe,District
+2020-10-01,488,-inf,VNM.44.2_1,Doan Hung,District
+2020-10-01,489,-inf,VNM.44.3_1,Ha Hoa,District
+2020-10-01,490,-inf,VNM.44.4_1,Lam Thao,District
+2020-10-01,491,-inf,VNM.44.5_1,Phu Ninh,District
+2020-10-01,492,-inf,VNM.44.6_1,Phu Tho,Town
+2020-10-01,493,-inf,VNM.44.7_1,Tam Nong,District
+2020-10-01,494,-inf,VNM.44.8_1,Tan Son,District
+2020-10-01,495,-inf,VNM.44.9_1,Thanh Ba,District
+2020-10-01,496,-inf,VNM.44.10_1,Thanh Son,District
+2020-10-01,497,-inf,VNM.44.11_1,Thanh Thuy,District
+2020-10-01,498,-inf,VNM.44.12_1,Viet Tri,City
+2020-10-01,499,-inf,VNM.44.13_1,Yen Lap,District
+2020-10-01,500,-inf,VNM.45.1_1,Dong Xuan,District
+2020-10-01,501,-inf,VNM.45.2_1,Dong Hoa,District
+2020-10-01,502,-inf,VNM.45.3_1,Phu Hoa,District
+2020-10-01,503,-inf,VNM.45.4_1,Son Hoa,District
+2020-10-01,504,-inf,VNM.45.5_1,Song Cau,Town
+2020-10-01,505,-inf,VNM.45.6_1,Song Hinh,District
+2020-10-01,506,-inf,VNM.45.7_1,Tay Hoa,District
+2020-10-01,507,-inf,VNM.45.8_1,Tuy An,District
+2020-10-01,508,-inf,VNM.45.9_1,Tuy Hoa,City
+2020-10-01,509,-inf,VNM.46.1_1,Bo Trach,District
+2020-10-01,510,0.0,VNM.46.2_1,Ba Don,Town
+2020-10-01,511,-inf,VNM.46.3_1,Le Thuy,District
+2020-10-01,512,0.0,VNM.46.4_1,Minh Hoa,District
+2020-10-01,513,-inf,VNM.46.5_1,Quang Ninh,District
+2020-10-01,514,0.0,VNM.46.6_1,Quang Trach,District
+2020-10-01,515,-inf,VNM.46.7_1,Dong Hoi,City
+2020-10-01,516,0.0,VNM.46.8_1,Tuyen Hoa,District
+2020-10-01,517,-inf,VNM.47.1_1,Bac Tra My,District
+2020-10-01,518,-inf,VNM.47.2_1,Dai Loc,District
+2020-10-01,519,-inf,VNM.47.3_1,Dien Ban,Town
+2020-10-01,520,-inf,VNM.47.4_1,Dong Giang,District
+2020-10-01,521,-inf,VNM.47.5_1,Duy Xuyen,District
+2020-10-01,522,-inf,VNM.47.6_1,Hoi An,City
+2020-10-01,523,-inf,VNM.47.7_1,Hiep Duc,District
+2020-10-01,524,-inf,VNM.47.8_1,Nam Giang,District
+2020-10-01,525,-inf,VNM.47.9_1,Nam Tra My,District
+2020-10-01,526,-inf,VNM.47.10_1,Nong Son,District
+2020-10-01,527,-inf,VNM.47.11_1,Nui Thanh,District
+2020-10-01,528,-inf,VNM.47.12_1,Phu Ninh,District
+2020-10-01,529,-inf,VNM.47.13_1,Phuoc Son,District
+2020-10-01,530,-inf,VNM.47.14_1,Que Son,District
+2020-10-01,531,-inf,VNM.47.15_1,Tam Ky,City
+2020-10-01,532,-inf,VNM.47.16_1,Tay Giang,District
+2020-10-01,533,-inf,VNM.47.17_1,Thang Binh,District
+2020-10-01,534,-inf,VNM.47.18_1,Tien Phuoc,District
+2020-10-01,535,-inf,VNM.48.1_1,Ba To,District
+2020-10-01,536,-inf,VNM.48.2_1,Binh Son,District
+2020-10-01,537,-inf,VNM.48.3_1,Duc Pho,District
+2020-10-01,538,-inf,VNM.48.4_1,Ly Son,District
+2020-10-01,539,-inf,VNM.48.5_1,Mo Duc,District
+2020-10-01,540,-inf,VNM.48.6_1,Minh Long,District
+2020-10-01,541,-inf,VNM.48.7_1,Nghia Hanh,District
+2020-10-01,542,-inf,VNM.48.8_1,Quang Ngai,City
+2020-10-01,543,-inf,VNM.48.9_1,Son Ha,District
+2020-10-01,544,-inf,VNM.48.10_1,Son Tinh,District
+2020-10-01,545,-inf,VNM.48.11_1,Son Tay,District
+2020-10-01,546,-inf,VNM.48.12_1,Tay Tra,District
+2020-10-01,547,-inf,VNM.48.13_1,Tra Bong,District
+2020-10-01,548,-inf,VNM.48.14_1,Tu Nghia,District
+2020-10-01,549,-inf,VNM.49.1_1,Ba Che,District
+2020-10-01,550,-inf,VNM.49.2_1,Binh Lieu,District
+2020-10-01,551,-inf,VNM.49.3_1,Cam Pha,City
+2020-10-01,552,-inf,VNM.49.4_1,Co To,District
+2020-10-01,553,-inf,VNM.49.5_1,Dam Ha,District
+2020-10-01,554,-inf,VNM.49.6_1,Dong Trieu,Town
+2020-10-01,555,0.0,VNM.49.7_1,Ha Long,City
+2020-10-01,556,-inf,VNM.49.8_1,Hai Ha,District
+2020-10-01,557,-inf,VNM.49.9_1,Hoanh Bo,District
+2020-10-01,558,-inf,VNM.49.10_1,Mong Cai,City
+2020-10-01,559,0.01405789,VNM.49.11_1,Quang Yen,Town
+2020-10-01,560,-inf,VNM.49.12_1,Tien Yen,District
+2020-10-01,561,-inf,VNM.49.13_1,Uong Bi,City
+2020-10-01,562,-inf,VNM.49.14_1,Van Don,District
+2020-10-01,563,-inf,VNM.50.1_1,Con Co,District
+2020-10-01,564,-inf,VNM.50.2_1,Cam Lo,District
+2020-10-01,565,-inf,VNM.50.3_1,Da Krong,District
+2020-10-01,566,-inf,VNM.50.4_1,Dong Ha,City
+2020-10-01,567,-inf,VNM.50.5_1,Gio Linh,District
+2020-10-01,568,-inf,VNM.50.6_1,Hai Lang,District
+2020-10-01,569,-inf,VNM.50.7_1,Huong Hoa,District
+2020-10-01,570,-inf,VNM.50.8_1,Quang Tri,Town
+2020-10-01,571,-inf,VNM.50.9_1,Trieu Phong,District
+2020-10-01,572,-inf,VNM.50.10_1,Vinh Linh,District
+2020-10-01,573,-inf,VNM.51.1_1,Chau Thanh,District
+2020-10-01,574,-inf,VNM.51.2_1,Cu Lao Dung,District
+2020-10-01,575,-inf,VNM.51.3_1,Ke Sach,District
+2020-10-01,576,-inf,VNM.51.4_1,Long Phu,District
+2020-10-01,577,-inf,VNM.51.5_1,My Tu,District
+2020-10-01,578,-inf,VNM.51.6_1,My Xuyen,District
+2020-10-01,579,-inf,VNM.51.7_1,Nga Nam,Town
+2020-10-01,580,-inf,VNM.51.8_1,Soc Trang,City
+2020-10-01,581,-inf,VNM.51.9_1,Thanh Tri,District
+2020-10-01,582,-inf,VNM.51.10_1,Tran De,District
+2020-10-01,583,-inf,VNM.51.11_1,Vinh Chau,Town
+2020-10-01,584,-inf,VNM.52.1_1,Bac Yen,District
+2020-10-01,585,0.0,VNM.52.2_1,Moc Chau,District
+2020-10-01,586,-inf,VNM.52.3_1,Mai Son,District
+2020-10-01,587,-inf,VNM.52.4_1,Muong La,District
+2020-10-01,588,-inf,VNM.52.5_1,Phu Yen,District
+2020-10-01,589,-inf,VNM.52.6_1,Quynh Nhai,District
+2020-10-01,590,0.0,VNM.52.7_1,Sop Cop,District
+2020-10-01,591,-inf,VNM.52.8_1,Son La,City
+2020-10-01,592,-inf,VNM.52.9_1,Song Ma,District
+2020-10-01,593,-inf,VNM.52.10_1,Thuan Chau,District
+2020-10-01,594,0.0,VNM.52.11_1,Van Ho,District
+2020-10-01,595,-inf,VNM.52.12_1,Yen Chau,District
+2020-10-01,596,-inf,VNM.53.1_1,Ben Cau,District
+2020-10-01,597,-inf,VNM.53.2_1,Chau Thanh,District
+2020-10-01,598,-inf,VNM.53.3_1,Duong Minh Chau,District
+2020-10-01,599,-inf,VNM.53.4_1,Go Dau,District
+2020-10-01,600,-inf,VNM.53.5_1,Hoa Thanh,District
+2020-10-01,601,-inf,VNM.53.6_1,Tan Bien,District
+2020-10-01,602,-inf,VNM.53.7_1,Tan Chau,District
+2020-10-01,603,-inf,VNM.53.8_1,Tay Ninh,City
+2020-10-01,604,-inf,VNM.53.9_1,Trang Bang,District
+2020-10-01,605,-inf,VNM.54.1_1,A Luoi,District
+2020-10-01,606,-inf,VNM.54.2_1,Hue,City
+2020-10-01,607,-inf,VNM.54.3_1,Huong Thuy,Town
+2020-10-01,608,-inf,VNM.54.4_1,Huong Tra,Town
+2020-10-01,609,-inf,VNM.54.5_1,Nam Dong,District
+2020-10-01,610,-inf,VNM.54.6_1,Phong Dien,District
+2020-10-01,611,-inf,VNM.54.7_1,Phu Loc,District
+2020-10-01,612,-inf,VNM.54.8_1,Phu Vang,District
+2020-10-01,613,-inf,VNM.54.9_1,Quang Dien,District
+2020-10-01,614,2.8831508,VNM.55.1_1,Dong Hung,District
+2020-10-01,615,3.1127963,VNM.55.2_1,Hung Ha,District
+2020-10-01,616,1.2907684,VNM.55.3_1,Kien Xuong,District
+2020-10-01,617,8.2259865,VNM.55.4_1,Quynh Phu,District
+2020-10-01,618,1.3341031,VNM.55.5_1,Thai Binh,City
+2020-10-01,619,5.4418325,VNM.55.6_1,Thai Thuy,District
+2020-10-01,620,1.5423088,VNM.55.7_1,Tien Hai,District
+2020-10-01,621,1.359457,VNM.55.8_1,Vu Thu,District
+2020-10-01,622,-inf,VNM.56.1_1,Dai Tu,District
+2020-10-01,623,-inf,VNM.56.2_1,Dinh Hoa,District
+2020-10-01,624,-inf,VNM.56.3_1,Dong Hy,District
+2020-10-01,625,-inf,VNM.56.4_1,Pho Yen,Town
+2020-10-01,626,-inf,VNM.56.5_1,Phu Binh,District
+2020-10-01,627,-inf,VNM.56.6_1,Phu Luong,District
+2020-10-01,628,-inf,VNM.56.7_1,Song Cong,City
+2020-10-01,629,-inf,VNM.56.8_1,Thai Nguyen,City
+2020-10-01,630,-inf,VNM.56.9_1,Vo Nhai,District
+2020-10-01,631,0.7680325,VNM.57.1_1,Bim Son,Town
+2020-10-01,632,8.0649326e-05,VNM.57.2_1,Ba Thuoc,District
+2020-10-01,633,0.03149709,VNM.57.3_1,Cam Thuy,District
+2020-10-01,634,2.127639,VNM.57.4_1,Dong Son,District
+2020-10-01,635,4.162705,VNM.57.5_1,Hau Loc,District
+2020-10-01,636,1.5799983,VNM.57.6_1,Ha Trung,District
+2020-10-01,637,1.6144326,VNM.57.7_1,Hoang Hoa,District
+2020-10-01,638,2.291142e-05,VNM.57.8_1,Lang Chanh,District
+2020-10-01,639,0.0,VNM.57.9_1,Muong Lat,District
+2020-10-01,640,0.016777353,VNM.57.10_1,Ngoc Lac,District
+2020-10-01,641,1.3039173,VNM.57.11_1,Nga Son,District
+2020-10-01,642,0.0868028,VNM.57.12_1,Nhu Thanh,District
+2020-10-01,643,0.0,VNM.57.13_1,Nhu Xuan,District
+2020-10-01,644,0.88628614,VNM.57.14_1,Nong Cong,District
+2020-10-01,645,1.4996622,VNM.57.15_1,Quang Xuong,District
+2020-10-01,646,0.0,VNM.57.16_1,Quan Hoa,District
+2020-10-01,647,0.0,VNM.57.17_1,Quan Son,District
+2020-10-01,648,0.75790477,VNM.57.18_1,Sam Son,City
+2020-10-01,649,0.1217846,VNM.57.19_1,Thach Thanh,District
+2020-10-01,650,0.08833159,VNM.57.20_1,Tho Xuan,District
+2020-10-01,651,1.8360314,VNM.57.21_1,Thanh Hoa,City
+2020-10-01,652,1.8004771,VNM.57.22_1,Thieu Hoa,District
+2020-10-01,653,0.0,VNM.57.23_1,Thuong Xuan,District
+2020-10-01,654,0.34299368,VNM.57.24_1,Tinh Gia,District
+2020-10-01,655,0.6322447,VNM.57.25_1,Trieu Son,District
+2020-10-01,656,0.68596315,VNM.57.26_1,Vinh Loc,District
+2020-10-01,657,0.8304011,VNM.57.27_1,Yen Dinh,District
+2020-10-01,658,-inf,VNM.58.1_1,Cai Be,District
+2020-10-01,659,-inf,VNM.58.3_1,Cai Lay,District
+2020-10-01,660,-inf,VNM.58.2_1,Cai Lay,Town
+2020-10-01,661,-inf,VNM.58.4_1,Cho Gao,District
+2020-10-01,662,-inf,VNM.58.5_1,Chau Thanh,District
+2020-10-01,663,-inf,VNM.58.8_1,Go Cong,Town
+2020-10-01,664,-inf,VNM.58.6_1,Go Cong Dong,District
+2020-10-01,665,-inf,VNM.58.7_1,Go Cong Tay,District
+2020-10-01,666,-inf,VNM.58.9_1,My Tho,City
+2020-10-01,667,-inf,VNM.58.10_1,Tan Phu Dong,District
+2020-10-01,668,-inf,VNM.58.11_1,Tan Phuoc,District
+2020-10-01,669,-inf,VNM.59.1_1,Cau Ke,District
+2020-10-01,670,-inf,VNM.59.2_1,Cau Ngang,District
+2020-10-01,671,-inf,VNM.59.3_1,Cang Long,District
+2020-10-01,672,-inf,VNM.59.4_1,Chau Thanh,District
+2020-10-01,673,-inf,VNM.59.6_1,Duyen Hai,District
+2020-10-01,674,-inf,VNM.59.5_1,Duyen Hai,Town
+2020-10-01,675,-inf,VNM.59.7_1,Tieu Can,District
+2020-10-01,676,-inf,VNM.59.8_1,Tra Cu,District
+2020-10-01,677,-inf,VNM.59.9_1,Tra Vinh,City
+2020-10-01,678,-inf,VNM.60.1_1,Chiem Hoa,District
+2020-10-01,679,-inf,VNM.60.2_1,Ham Yen,District
+2020-10-01,680,-inf,VNM.60.3_1,Lam Binh,District
+2020-10-01,681,-inf,VNM.60.4_1,Na Hang,District
+2020-10-01,682,-inf,VNM.60.5_1,Son Duong,District
+2020-10-01,683,-inf,VNM.60.6_1,Tuyen Quang,City
+2020-10-01,684,-inf,VNM.60.7_1,Yen Son,District
+2020-10-01,685,-inf,VNM.61.1_1,Binh Minh,Town
+2020-10-01,686,-inf,VNM.61.2_1,Binh Tan,District
+2020-10-01,687,-inf,VNM.61.3_1,Long Ho,District
+2020-10-01,688,-inf,VNM.61.4_1,Mang Thit,District
+2020-10-01,689,-inf,VNM.61.5_1,Tam Binh,District
+2020-10-01,690,-inf,VNM.61.6_1,Tra On,District
+2020-10-01,691,-inf,VNM.61.7_1,Vinh Long,City
+2020-10-01,692,-inf,VNM.61.8_1,Vung Liem,District
+2020-10-01,693,-inf,VNM.62.1_1,Binh Xuyen,District
+2020-10-01,694,-inf,VNM.62.2_1,Lap Thach,District
+2020-10-01,695,-inf,VNM.62.3_1,Phuc Yen,Town
+2020-10-01,696,-inf,VNM.62.4_1,Song Lo,District
+2020-10-01,697,-inf,VNM.62.5_1,Tam Dao,District
+2020-10-01,698,-inf,VNM.62.6_1,Tam Duong,District
+2020-10-01,699,-inf,VNM.62.7_1,Vinh Tuong,District
+2020-10-01,700,-inf,VNM.62.8_1,Vinh Yen,City
+2020-10-01,701,-inf,VNM.62.9_1,Yen Lac,District
+2020-10-01,702,-inf,VNM.63.1_1,Luc Yen,District
+2020-10-01,703,-inf,VNM.63.2_1,Mu Cang Chai,District
+2020-10-01,704,-inf,VNM.63.3_1,Nghia Lo,Town
+2020-10-01,705,-inf,VNM.63.4_1,Tram Tau,District
+2020-10-01,706,-inf,VNM.63.5_1,Tran Yen,District
+2020-10-01,707,-inf,VNM.63.6_1,Van Chan,District
+2020-10-01,708,-inf,VNM.63.7_1,Van Yen,District
+2020-10-01,709,-inf,VNM.63.8_1,Yen Bai,City
+2020-10-01,710,-inf,VNM.63.9_1,Yen Binh,District

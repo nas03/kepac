@@ -22,7 +22,7 @@ pool.on('error', (err) => {
 	process.exit(-1);
 });
 
-// Function to get a client from the pool
+
 const getClient = async () => {
 	const client = await pool.connect();
 	const query = client.query.bind(client);

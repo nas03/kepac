@@ -35,7 +35,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
 	}, [play, time]);
 	return (
 		<>
-			<div className="flex flex-row w-screen h-[5vh]">
+			<div className="flex flex-row w-screen h-[5vh] z-[1000000]">
 				<div className="flex flex-row px-3 items-center">
 					<ArrowLeftIcon
 						className="cursor-pointer"

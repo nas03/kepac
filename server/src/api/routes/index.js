@@ -1,5 +1,5 @@
 import geoTIFFRoute from './geotiff.route.js';
-
-const routes = [geoTIFFRoute];
+import precipitationRoute from './precipitation.route.js';
+const routes = [geoTIFFRoute, precipitationRoute];
 
 export default routes;
