@@ -54,7 +54,7 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                 onToggle({ precipitation: toggle.warn, warn: !toggle.warn })
               }
             >
-              Cảnh báo
+              Bản đồ cảnh báo
             </Button>
             <Button
               className={`rounded-3xl font-semibold hover:cursor-pointer ${toggle.precipitation ? "bg-[#0057FC] text-white" : "bg-white text-black"}`}
