@@ -1,11 +1,14 @@
-import db from '../config/knex.js';
+import db from "@/config/knex";
+import { GeoTIFFStats } from "@/types";
 
-export const uploadGeoTIFFFile = async (payload) => {
+export const uploadGeoTIFFFile = async (
+	payload: GeoTIFFStats | GeoTIFFStats[]
+) => {
 	const query = await db('precipitation').insert(payload);
 	return query ? true : false;
 };
 
-export const getGeoTIFFFile = async (time) => {
+export const getGeoTIFFFile = async (time: string) => {
 	const query = await db('precipitation')
 		.whereRaw('DATE(birthtime) = DATE(?::timestamp)', [time])
 		.andWhereRaw(

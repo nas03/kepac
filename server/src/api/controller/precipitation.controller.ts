@@ -1,8 +1,9 @@
-import { avgPrecipitationRepository } from '../../database/index.js';
+import { avgPrecipitationRepository } from '@/database';
+import type { Request, Response } from 'express';
 
-export const getMedianPrecipitation = async (req, res) => {
+export const getMedianPrecipitation = async (req: Request, res: Response) => {
 	try {
-		const time = req.query.time;
+		const time = String(req.query.time);
 		if (!time) {
 			return res.status(400).json({
 				status: 'error',

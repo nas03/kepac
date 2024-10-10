@@ -1,6 +1,6 @@
-import db from '../config/knex.js';
+import db from "@/config/knex";
 
-export const getMedianPrecipitation = async (time) => {
+export const getMedianPrecipitation = async (time: string) => {
 	const query = await db('avg_precipitation')
 		.select('*')
 		.where({

@@ -1,12 +1,13 @@
+import { precipitationRepository } from '@/database';
+import { getFilename } from '@/utils/utils';
+import type { Request, Response } from 'express';
 import fs from 'fs';
 import fsPromise from 'fs/promises';
-import { precipitationRepository } from '../../database/index.js';
-import { getFilename } from '../../utils/utils.js';
 
-const getGeoTIFF = async (req, res) => {
+const getGeoTIFF = async (req: Request, res: Response) => {
 	try {
 		// Example file
-		const { time } = req.query;
+		const time = String(req.query.time) || '';
 		// const time = '2024-10-04T18:14:17.667000+00:00';
 		if (!time) {
 			return res.status(400).json({
@@ -53,7 +54,7 @@ const getGeoTIFF = async (req, res) => {
 	}
 };
 
-const getGeneralInfo = async (req, res) => {
+const getGeneralInfo = async (req: Request, res: Response) => {
 	try {
 		const filePath = 'assets/Radar_20201001000000.tif';
 		const fileStats = await fsPromise.stat(filePath);
@@ -80,7 +81,7 @@ const getGeneralInfo = async (req, res) => {
 	}
 };
 
-const uploadGeoTiffFile = async (req, res) => {
+const uploadGeoTiffFile = async (req: Request, res: Response) => {
 	try {
 		const path = req.body.path;
 		const fileName = getFilename(path);
@@ -117,7 +118,7 @@ const uploadGeoTiffFile = async (req, res) => {
 	}
 };
 
-const loadSampleData = async (req, res) => {
+const loadSampleData = async (req: Request, res: Response) => {
 	try {
 		const files = await fsPromise.readdir('assets/geotiff');
 		const payload = await Promise.all(

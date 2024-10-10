@@ -1,11 +1,12 @@
+import { use } from '@/utils/utils';
 import { Router } from 'express';
-import { precipitationController } from '../controller/index.js';
+import { precipitationController } from '../controller';
 
 const precipitationRoute = Router();
 
 precipitationRoute.get(
 	'/precipitation/medium',
-	precipitationController.getMedianPrecipitation
+	use(precipitationController.getMedianPrecipitation)
 );
 
 export default precipitationRoute;

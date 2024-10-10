@@ -1,19 +1,21 @@
 {
   "name": "server",
-  "module": "src/server.js",
-  "type": "module",
+  "main": "src/server.ts",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "debug": "nodemon --inspect src/server.js"
+    "dev": "NODE_ENV=development nodemon -r tsconfig-paths/register src/server.ts",
+    "prod": "NODE_ENV=production nodemon -r tsconfig-paths/register src/server.ts",
+    "debug": "nodemon --inspect src/server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "@types/knex": "^0.16.1",
     "@types/pg": "^8.11.10",
     "nodemon": "^3.1.7"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.6.3"
   },
   "dependencies": {
     "child_process": "^1.0.2",
@@ -23,6 +25,8 @@
     "knex": "^3.1.0",
     "moment": "^2.30.1",
     "moment-timezone": "^0.5.46",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0"
   }
 }
