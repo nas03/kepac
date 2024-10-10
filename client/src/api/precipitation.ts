@@ -1,17 +1,6 @@
 import api from "@/helper/axios";
+import { PrecipitationRecord } from "@/types";
 
-type PrecipitationRecord = {
-  id: number;
-  district_id: number;
-  avg_precipitation: number;
-  geo_id: string;
-  district_name: string;
-  geo_type: string;
-  time: string; // You might also consider using Date if you parse the date
-  updated_at: Date | null; // Assuming updated_at can be a Date or null
-  created_at: Date | null; // Assuming created_at can be a Date or null
-};
- 
 export const getAvgPrecipitation = async (
   time: string,
 ): Promise<PrecipitationRecord[]> => {

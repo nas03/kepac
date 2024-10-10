@@ -61,9 +61,6 @@ const getGeneralInfo = async (req: Request, res: Response) => {
 
 		const data = {
 			size: fileStats.size,
-			atime: fileStats.atime,
-			mtime: fileStats.mtime,
-			ctime: fileStats.ctime,
 			birthtime: fileStats.birthtime,
 		};
 		return res.status(200).json({
@@ -90,9 +87,6 @@ const uploadGeoTiffFile = async (req: Request, res: Response) => {
 		const payload = {
 			file_name: fileName,
 			path: filePath,
-			atime: fileStats.atime,
-			mtime: fileStats.mtime,
-			ctime: fileStats.ctime,
 			birthtime: fileStats.birthtime,
 		};
 		const uploadFile = await precipitationRepository.uploadGeoTIFFFile(payload);
@@ -124,7 +118,6 @@ const loadSampleData = async (req: Request, res: Response) => {
 		const payload = await Promise.all(
 			files.map(async (file) => {
 				const filePath = `assets/geotiff/${file}`;
-				const fileStats = await fsPromise.stat(filePath);
 				// Extract the relevant parts of the filename
 				const year = file.split('_')[1].slice(0, 4);
 				const month = file.split('_')[1].slice(4, 6);
@@ -148,9 +141,6 @@ const loadSampleData = async (req: Request, res: Response) => {
 				return {
 					file_name: file,
 					path: filePath,
-					atime: fileStats.atime,
-					mtime: fileStats.mtime,
-					ctime: fileStats.ctime,
 					birthtime: timeInfo,
 				};
 			})

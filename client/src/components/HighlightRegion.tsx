@@ -1,48 +1,100 @@
-import { vnGeo } from "@/data/vn-geo";
-import geojson from "geojson";
-import L, { Layer, LeafletMouseEvent } from "leaflet";
-
+import { getAvgPrecipitation } from "@/api";
+import { vnDistrict } from "@/data/district";
+import { demoTime } from "@/data/time-demo";
+import { PrecipitationRecord } from "@/types";
+import geojson, { FeatureCollection } from "geojson";
+import L from "leaflet";
+import { useEffect, useState } from "react";
 interface IPropsHighlightRegion {
   map: L.Map;
+  time: number;
+  toggle: boolean;
 }
-const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map }) => {
-  //highlight region when hover
-  const highlightFeature = (e: LeafletMouseEvent) => {
-    const layer = e.target;
+const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
+  map,
+  time,
+  toggle,
+}) => {
+  const [data, setData] = useState<PrecipitationRecord[]>([]);
 
-    layer.setStyle({
-      weight: 5,
-      color: "#666",
-      dashArray: "",
-      fillOpacity: 0.7,
+  useEffect(() => {
+    getAvgPrecipitation(demoTime[time / 2]).then((data) => {
+      setData(data);
     });
-    layer.bringToFront();
-  };
+  }, [time]);
+  function getColor(d: string) {
+    if (data.length === 0) return null;
+    const precipitation = data.find(
+      (el) => el.district_code === d,
+    )?.avg_precipitation;
 
-  const resetHighlight = (e: LeafletMouseEvent) => {
-    L.geoJSON().resetStyle(e.target);
-  };
+    console.log({ precipitation });
+    if (!precipitation || precipitation < 0.2) return null;
+    if (precipitation <= 1) return "#3a92a1";
+    if (precipitation <= 5) return "#49a43a";
+    if (precipitation <= 30) return "#993839";
+    if (precipitation > 30) return "#a33782";
+  }
 
-  const onEachFeature = (feature: geojson.Feature, layer: Layer) => {
-    layer.on({
-      mouseover: highlightFeature,
-      mouseout: resetHighlight,
-    });
-  };
+  function style(feature: geojson.Feature | undefined) {
+    const color = getColor(feature?.properties?.District);
+    if (!color) {
+      return {
+        weight: 0,
+        opacity: 1,
+        color: "white",
+        dashArray: "0",
+        fillOpacity: 0,
+        fillColor: "transparent",
+      };
+    }
+    return {
+      weight: 2,
+      color: "white",
+      dashArray: "3",
+      fillOpacity: 0.5,
+      fillColor: color,
+    };
+  }
+  // //highlight region when hover
+  // const highlightFeature = (e: LeafletMouseEvent) => {
+  //   const layer = e.target;
+
+  //   layer.setStyle({
+  //     weight: 5,
+  //     color: "#666",
+  //     dashArray: "",
+  //     fillOpacity: 0.7,
+  //   });
+  //   layer.bringToFront();
+  // };
+
+  // const resetHighlight = (e: LeafletMouseEvent) => {
+  //   L.geoJSON().resetStyle(e.target);
+  // };
+
+  // const onEachFeature = (feature: geojson.Feature, layer: Layer) => {
+  //   layer.on({
+  //     mouseover: highlightFeature,
+  //     mouseout: resetHighlight,
+  //   });
+  // };
 
   const addGeoJsonLayer = () => {
-    let flag = false;
     map.eachLayer((layer) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if ((layer as any).defaultOptions?.onEachFeature) {
-        flag = true;
+      if ((layer as any).defaultOptions?.attribution === "highlightRegion") {
+        map.removeLayer(layer);
       }
     });
-    if (!flag) {
-      L.geoJson(vnGeo, {
-        onEachFeature: onEachFeature,
-      }).addTo(map);
+    if (!toggle) {
+      return null;
     }
+    L.geoJson(vnDistrict as FeatureCollection, {
+      // onEachFeature: onEachFeature,
+      style: style,
+      attribution: "highlightRegion",
+    }).addTo(map);
   };
 
   addGeoJsonLayer();

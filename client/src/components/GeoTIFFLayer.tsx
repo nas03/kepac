@@ -4,8 +4,13 @@ interface IPropsGeoTIFFLayer {
   map: L.Map;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   georaster: any;
+  toggle: boolean;
 }
-const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster }) => {
+const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({
+  map,
+  georaster,
+  toggle,
+}) => {
   const clearPreviousLayer = (map: L.Map) => {
     map.eachLayer((layer) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,9 +19,10 @@ const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster }) => {
       }
     });
   };
+
   useEffect(() => {
     clearPreviousLayer(map);
-
+    if (!toggle) return;
     if (!georaster?.layer) {
       return;
     }
@@ -24,7 +30,7 @@ const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster }) => {
 
     map.addLayer(layer);
     map.fitBounds(layer.getBounds());
-  }, [georaster]);
+  }, [georaster, toggle]);
 
   return null;
 };

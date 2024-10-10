@@ -71,14 +71,16 @@ for filepath in glob.iglob(os.path.join(folder_pm25_path, '*.tif')):
     df = df[['time', 'dist_ID', 'Precipitation']]
 
     # print(meta)
-    sub_meta = meta[['ID', 'GID_2', 'VARNAME_2', 'ENGTYPE_2']]
-    sub_meta.columns = ['dist_ID', 'GID_2', 'VARNAME_2', 'ENGTYPE_2']
+    sub_meta = meta[['ID', 'GID_2', 'NAME_1', 'NAME_2','VARNAME_2', 'ENGTYPE_2']]
+    sub_meta.columns = ['dist_ID', 'GID_2', 'NAME_1', 'NAME_2', 'VARNAME_2', 'ENGTYPE_2']
     df = pd.merge(df, sub_meta)
     df = df.rename(columns={
         'dist_ID': 'district_id',
         'Precipitation': 'avg_precipitation',
         'GID_2': 'geo_id',
-        'VARNAME_2': 'district_name',
+        'NAME_1': 'province_name', 
+        'NAME_2': 'district_name',
+        'VARNAME_2': 'district_code',
         'ENGTYPE_2': 'geo_type',
         'time': 'time'
     })

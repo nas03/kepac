@@ -1,9 +1,15 @@
 import { getRasterLayer } from "@/api/georaster.ts";
-import { GeoTIFFLayer, InfoTip, RankInfo, TimeSlider } from "@/components";
+import {
+  GeoTIFFLayer,
+  HighlightRegion,
+  InfoTip,
+  RankInfo,
+  TimeSlider,
+} from "@/components";
 import GradientScale from "@/components/GradientScale.tsx";
 import { demoTime } from "@/data/time-demo.ts";
 import { InfoOutlined } from "@mui/icons-material";
-import { Button, Popover } from "antd";
+import { Button, Divider, Popover } from "antd";
 import "leaflet/dist/leaflet.css";
 import {
   createContext,
@@ -15,6 +21,7 @@ import {
 } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "./App.css";
+import { RasterData } from "./types";
 
 // Separate contexts for different state values
 const TimeContext = createContext<{
@@ -33,34 +40,51 @@ const LeafletMap = () => {
 
   const [time, setTime] = useState(0);
   const [precipitation, setPrecipitation] = useState<number>(0);
-
+  const [toggle, setToggle] = useState({
+    precipitation: true,
+    warn: false,
+  });
   const handleTimeChange = useCallback((newTime: number) => {
     setTime(newTime);
   }, []);
-
+  const handleToggleLayer = useCallback(
+    (newToggle: { precipitation?: boolean; warn?: boolean }) => {
+      setToggle((prev) => ({ ...prev, ...newToggle }));
+    },
+    [],
+  );
   // Memoized OverlayLayer to prevent re-renders from precipitation changes
   const OverlayLayer = memo(() => {
     const { time } = useContext(TimeContext)!;
 
     return (
-      <div className="absolute z-[10000] ml-[1rem] h-[95vh]">
-        <RankInfo time={time} />
+      <div className="absolute z-[10000] ml-[1rem] mt-[5rem] max-h-[95vh]">
+        <RankInfo toggle={toggle} onToggle={handleToggleLayer} time={time} />
       </div>
     );
   });
 
   const RightOverlayLayer = memo(() => {
-    const content = (
-      <div>
-        <p>Content</p>
-        <p>Content</p>
-      </div>
-    );
+    const Header = () => {
+      return (
+        <>
+          <h1 className="text-xl font-bold">Chú thích</h1>
+          <Divider className="mt-2" />
+        </>
+      );
+    };
     return (
       <div className="absolute right-0 z-[10000] mr-[1rem] h-[95vh]">
-        {/* <div className="relative top-[4rem] flex h-[2.3rem] w-[2.3rem] flex-row items-center justify-center rounded-full bg-transparent bg-white text-lg text-black hover:cursor-pointer hover:text-blue-400"> */}
         <div className="relative top-[4rem] float-right w-fit">
-          <Popover content={<InfoTip />} title="Title" placement="left">
+          <Popover
+            content={<InfoTip />}
+            style={{
+              padding: "2rem",
+            }}
+            className="rounded-xl mt-[3rem]"
+            title={<Header />}
+            placement="left"
+          >
             <Button
               type="default"
               className="rounded-full"
@@ -68,19 +92,20 @@ const LeafletMap = () => {
             />
           </Popover>
         </div>
-        <div className="relative top-[65vh] float-right w-full">
-          <GradientScale />
+        <div className="relative top-[79vh] float-right w-fit">
+          <GradientScale toggle={toggle} />
         </div>
-        {/* <InfoOutlinedIcon className="h-full w-full" /> */}
-        {/* </div> */}
       </div>
     );
   });
 
   const External = () => {
     const map = useMap();
-    const [rasterLayer, setRasterLayer] = useState<any>(null);
-    const { setPrecipitation } = useContext(PrecipitationContext)!;
+    const [rasterLayer, setRasterLayer] = useState<RasterData>({
+      layer: null,
+      georaster: null,
+    });
+    // const { setPrecipitation } = useContext(PrecipitationContext)!;
     const { time } = useContext(TimeContext)!;
 
     useEffect(() => {
@@ -107,16 +132,41 @@ const LeafletMap = () => {
     //     map.off("click", handleClick);
     //   };
     // }, [map, rasterLayer, setPrecipitation]);
-
+    useEffect(() => {
+      if (!toggle.precipitation) {
+        map.eachLayer((layer) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          if ((layer as any).rasters && (layer as any).georasters) {
+            map.removeLayer(layer);
+          }
+        });
+      }
+      if (!toggle.warn) {
+        console.log("delete");
+        map.eachLayer((layer) => {
+          if (
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            (layer as any).defaultOptions?.attribution === "highlightRegion"
+          ) {
+            map.removeLayer(layer);
+          }
+        });
+      }
+    }, [toggle]);
     return (
       <>
-        <GeoTIFFLayer map={map} georaster={rasterLayer} />
+        <GeoTIFFLayer
+          toggle={toggle.precipitation}
+          map={map}
+          georaster={rasterLayer}
+        />
+
         {/* <PrecipitationLegend
           time={time}
           map={map}
           precipitation={precipitation}
         /> */}
-        {/* <HighlightRegion map={map} /> */}
+        <HighlightRegion toggle={toggle.warn} time={time} map={map} />
       </>
     );
   };

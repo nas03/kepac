@@ -1,10 +1,16 @@
+import dotenv from 'dotenv';
 import knex, { Knex } from 'knex';
+dotenv.config();
 
 const knexConfig: { [key: string]: Knex.Config } = {
 	production: {
 		client: 'pg',
 		connection: {
-			connectionString: `postgresql://postgres.zfydybjluphaiojkxols:${process.env.SUPABASE_PASSWORD}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres`,
+			host: 'aws-0-ap-southeast-1.pooler.supabase.com',
+			port: 6543,
+			user: 'postgres.zfydybjluphaiojkxols',
+			password: String(process.env.SUPABASE_PASSWORD),
+			debug: true,
 		},
 	},
 	development: {
@@ -20,6 +26,11 @@ const knexConfig: { [key: string]: Knex.Config } = {
 	},
 };
 
-const db = knex(knexConfig[String(process.env.NODE_ENV)]);
+const db = knex({
+	client: 'pg',
+	connection: {
+		connectionString: `postgresql://postgres.zfydybjluphaiojkxols:${process.env.SUPABASE_PASSWORD}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres`,
+	},
+});
 
 export default db;
