@@ -18,9 +18,18 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
   const [data, setData] = useState<PrecipitationRecord[]>([]);
 
   useEffect(() => {
-    getAvgPrecipitation(demoTime[time / 2]).then((data) => {
-      setData(data);
-    });
+    let isMounted = true;
+    const fetchData = async () => {
+      const data = await getAvgPrecipitation(demoTime[time / 2]);
+      if (isMounted) {
+        setData(data);
+      }
+    };
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [time]);
   function getColor(d: string) {
     if (data.length === 0) return null;
@@ -56,29 +65,6 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
       fillColor: color,
     };
   }
-  // //highlight region when hover
-  // const highlightFeature = (e: LeafletMouseEvent) => {
-  //   const layer = e.target;
-
-  //   layer.setStyle({
-  //     weight: 5,
-  //     color: "#666",
-  //     dashArray: "",
-  //     fillOpacity: 0.7,
-  //   });
-  //   layer.bringToFront();
-  // };
-
-  // const resetHighlight = (e: LeafletMouseEvent) => {
-  //   L.geoJSON().resetStyle(e.target);
-  // };
-
-  // const onEachFeature = (feature: geojson.Feature, layer: Layer) => {
-  //   layer.on({
-  //     mouseover: highlightFeature,
-  //     mouseout: resetHighlight,
-  //   });
-  // };
 
   const addGeoJsonLayer = () => {
     map.eachLayer((layer) => {
@@ -91,7 +77,6 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
       return null;
     }
     L.geoJson(vnDistrict as FeatureCollection, {
-      // onEachFeature: onEachFeature,
       style: style,
       attribution: "highlightRegion",
     }).addTo(map);

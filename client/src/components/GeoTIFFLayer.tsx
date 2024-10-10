@@ -22,14 +22,15 @@ const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({
 
   useEffect(() => {
     clearPreviousLayer(map);
-    if (!toggle) return;
-    if (!georaster?.layer) {
-      return;
-    }
-    const layer = new GeoRasterLayer(georaster?.layer);
+    if (!toggle || !georaster?.layer) return;
 
+    const layer = new GeoRasterLayer(georaster.layer);
     map.addLayer(layer);
     map.fitBounds(layer.getBounds());
+
+    return () => {
+      map.removeLayer(layer);
+    };
   }, [georaster, toggle]);
 
   return null;

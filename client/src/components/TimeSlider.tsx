@@ -26,7 +26,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
 					onTimeChange(time + 2);
 					setTime((prevTime) => prevTime + 2);
 				}
-			}, 1000);
+			}, 5000);
 
 			return () => {
 				clearInterval(intervalId);
