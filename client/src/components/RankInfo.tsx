@@ -86,13 +86,13 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                 <table className="min-w-full border-collapse">
                   <thead className="sticky top-0 bg-white text-sm">
                     <tr>
-                      <th className="border-b-2 border-b-gray-100 p-4 text-left text-black">
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left text-black">
                         #
                       </th>
-                      <th className="border-b-2 border-b-gray-100 p-4 text-left uppercase text-black">
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">
                         Địa điểm
                       </th>
-                      <th className="border-b-2 border-b-gray-100 p-4 text-left font-sans uppercase text-black">
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left font-sans uppercase text-black">
                         Lượng mưa
                       </th>
                     </tr>
@@ -100,13 +100,13 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                   <tbody>
                     {filteredData.map((el, index) => (
                       <tr key={el.id}>
-                        <td className="border-b-2 border-b-gray-100 p-4 text-xs font-semibold">
+                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-xs font-semibold">
                           {index + 1}
                         </td>
-                        <td className="border-b-2 border-b-gray-100 p-4 text-xs font-semibold">
+                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-xs font-semibold">
                           {el?.district_name} - {el?.province_name}
                         </td>
-                        <td className="border-b-2 border-b-gray-100 p-4 text-sm">
+                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-sm">
                           {Number(el?.avg_precipitation).toFixed(2)} mm
                         </td>
                       </tr>

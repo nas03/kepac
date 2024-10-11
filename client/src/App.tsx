@@ -92,7 +92,7 @@ const LeafletMap = () => {
             />
           </Popover>
         </div>
-        <div className="relative top-[79vh] float-right w-fit">
+        <div className="relative top-[75%] float-right w-fit">
           <GradientScale toggle={toggle} />
         </div>
       </div>

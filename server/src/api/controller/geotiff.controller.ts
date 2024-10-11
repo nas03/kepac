@@ -1,14 +1,13 @@
 import { precipitationRepository } from '@/database';
-import { getFilename } from '@/utils/utils';
+import { getFilename, getTimeInfoFromFilename } from '@/utils/utils';
+import childProc from 'child_process';
+import csv from 'csvtojson/v2';
 import type { Request, Response } from 'express';
 import fs from 'fs';
 import fsPromise from 'fs/promises';
-
 const getGeoTIFF = async (req: Request, res: Response) => {
 	try {
-		// Example file
 		const time = String(req.query.time) || '';
-		// const time = '2024-10-04T18:14:17.667000+00:00';
 		if (!time) {
 			return res.status(400).json({
 				status: 'error',
@@ -115,48 +114,32 @@ const uploadGeoTiffFile = async (req: Request, res: Response) => {
 const loadSampleData = async (req: Request, res: Response) => {
 	try {
 		const files = await fsPromise.readdir('assets/geotiff');
-		const payload = await Promise.all(
-			files.map(async (file) => {
-				const filePath = `assets/geotiff/${file}`;
-				// Extract the relevant parts of the filename
-				const year = file.split('_')[1].slice(0, 4);
-				const month = file.split('_')[1].slice(4, 6);
-				const day = file.split('_')[1].slice(6, 8);
-				const hour = file.split('_')[1].slice(8, 10);
-				const minute = file.split('_')[1].slice(10, 12);
-				const second = file.split('_')[1].slice(12, 14);
+		const precipitationPayload = files.map((file) => ({
+			file_name: file,
+			path: `assets/geotiff/${file}`,
+			birthtime: getTimeInfoFromFilename(file),
+		}));
 
-				// Create a JavaScript Date object
-				const timeInfo = new Date(
-					parseInt(year),
-					parseInt(month) - 1, // Month is 0-indexed in JavaScript Date (0 for January, 11 for December)
-					parseInt(day),
-					parseInt(hour),
-					parseInt(minute),
-					parseInt(second)
-				);
+		// Exec python file
+		childProc.execSync('python3 scripts/extract.py');
+		const avgPrecipitationPayload = await csv().fromFile('assets/csv/data.csv');
 
-				// Print the extracted date and time
-				console.log('Extracted datetime:', timeInfo);
-				return {
-					file_name: file,
-					path: filePath,
-					birthtime: timeInfo,
-				};
-			})
-		);
-		const uploadFile = await precipitationRepository.uploadGeoTIFFFile(payload);
-		if (!uploadFile) {
+		const payload = {
+			avg_precipitation: avgPrecipitationPayload,
+			precipitation: precipitationPayload,
+		};
+		const uploadData = await precipitationRepository.uploadDataset(payload);
+		if (!uploadData) {
 			return res.status(500).json({
 				status: 'error',
-				message: 'Error Uploading to Database',
+				message: 'Error uploading to database',
 				data: null,
 			});
 		}
 		return res.status(200).json({
 			status: 'success',
 			message: null,
-			data: payload,
+			data: null,
 		});
 	} catch (error) {
 		console.log('Server error', error);
