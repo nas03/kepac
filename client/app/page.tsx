@@ -5,6 +5,7 @@ import { demoTime } from '@/data/time-demo';
 import type { RasterData } from '@/types';
 import { InfoOutlined } from '@mui/icons-material';
 import { Button, Divider, Popover } from 'antd';
+import 'leaflet/dist/leaflet.css';
 import dynamic from 'next/dynamic';
 import {
 	createContext,
@@ -54,12 +55,6 @@ const TimeSlider = dynamic(
 const GradientScale = dynamic(() => import('@/components/GradientScale'), {
 	ssr: false,
 });
-
-// CSS import
-// const LeafletCSS = dynamic(() => import('leaflet/dist/leaflet.css'), {
-// 	ssr: false,
-// });
-import 'leaflet/dist/leaflet.css';
 // Context definitions
 const TimeContext = createContext<{
 	time: number;
