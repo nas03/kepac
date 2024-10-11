@@ -1,12 +1,5 @@
 {
     "name": "kepac",
     "author": "nas03",
-    "version": "1.0.0",
-    "scripts": {
-        "dev:server": "cd server && bun dev"
-    },
-    "workspaces": [
-        "client",
-        "server"
-    ]
+    "version": "1.0.0"
 }
