@@ -11,8 +11,7 @@ export const getAvgPrecipitation = async (
       },
     });
     return response.data.data;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
+  } catch {
     return [];
   }
 };

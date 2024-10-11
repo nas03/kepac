@@ -81,7 +81,7 @@ const LeafletMap = () => {
             style={{
               padding: "2rem",
             }}
-            className="rounded-xl mt-[3rem]"
+            className="mt-[3rem] rounded-xl"
             title={<Header />}
             placement="left"
           >
@@ -113,6 +113,24 @@ const LeafletMap = () => {
         setRasterLayer(rasterLayer);
       });
     }, [time]);
+    interface RasterLayer {
+      rasters: unknown;
+      georasters: unknown;
+    }
+    interface HighlightLayer extends L.Layer {
+      defaultOptions?: {
+        attribution?: string;
+      };
+    }
+
+    const isRasterLayer = (layer: unknown): layer is RasterLayer => {
+      return (
+        typeof layer === "object" &&
+        layer !== null &&
+        "rasters" in layer &&
+        "georasters" in layer
+      );
+    };
 
     // useEffect(() => {
     //   if (!map || !rasterLayer?.georaster) return;
@@ -135,8 +153,7 @@ const LeafletMap = () => {
     useEffect(() => {
       if (!toggle.precipitation) {
         map.eachLayer((layer) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          if ((layer as any).rasters && (layer as any).georasters) {
+          if (isRasterLayer(layer)) {
             map.removeLayer(layer);
           }
         });
@@ -145,8 +162,8 @@ const LeafletMap = () => {
         console.log("delete");
         map.eachLayer((layer) => {
           if (
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (layer as any).defaultOptions?.attribution === "highlightRegion"
+            (layer as HighlightLayer).defaultOptions?.attribution ===
+            "highlightRegion"
           ) {
             map.removeLayer(layer);
           }
