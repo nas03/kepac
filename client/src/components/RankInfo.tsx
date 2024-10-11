@@ -22,8 +22,8 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
 
   const filterData = (input: string) => {
     const filter = data.filter((el) => el.district_name.startsWith(input));
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    setFilteredData((prev) => filter);
+
+    setFilteredData(() => filter);
   };
   useEffect(() => {
     getAvgPrecipitation(demoTime[time / 2]).then((data) => {
@@ -100,13 +100,13 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                   <tbody>
                     {filteredData.map((el, index) => (
                       <tr key={el.id}>
-                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-xs font-semibold">
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
                           {index + 1}
                         </td>
-                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-xs font-semibold">
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
                           {el?.district_name} - {el?.province_name}
                         </td>
-                        <td className="border-b-2 border-b-gray-100 p-3 w-fit text-sm">
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-sm">
                           {Number(el?.avg_precipitation).toFixed(2)} mm
                         </td>
                       </tr>
