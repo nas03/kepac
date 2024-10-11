@@ -1,3 +1,4 @@
+'use client';
 import GeoRasterLayer from "georaster-layer-for-leaflet";
 import { useEffect } from "react";
 interface IPropsGeoTIFFLayer {
