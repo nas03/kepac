@@ -3,7 +3,7 @@ import express from 'express';
 import morgan from 'morgan';
 import routes from './api/routes';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5500;
 const server = express();
 
 // config server
