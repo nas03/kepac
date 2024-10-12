@@ -5,6 +5,7 @@ import { demoTime } from '@/data/time-demo';
 import type { RasterData } from '@/types';
 import { InfoOutlined } from '@mui/icons-material';
 import { Button, Divider, Popover } from 'antd';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import dynamic from 'next/dynamic';
 import {
@@ -17,6 +18,15 @@ import {
 } from 'react';
 import { useMap } from 'react-leaflet';
 // Dynamic imports for all components
+
+/* const Marker = dynamic(
+	() => import('react-leaflet').then((mod) => mod.Marker),
+	{ ssr: false }
+);
+const Tooltip = dynamic(
+	() => import('react-leaflet').then((mod) => mod.Tooltip),
+	{ ssr: false }
+); */
 const MapContainer = dynamic(
 	() => import('react-leaflet').then((mod) => mod.MapContainer),
 	{ ssr: false }
@@ -53,6 +63,9 @@ const TimeSlider = dynamic(
 );
 
 const GradientScale = dynamic(() => import('@/components/GradientScale'), {
+	ssr: false,
+});
+const MarkerGroup = dynamic(() => import('@/components/MarkerGroup'), {
 	ssr: false,
 });
 // Context definitions
@@ -227,6 +240,7 @@ const LeafletMap = () => {
 							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 						/>
+						<MarkerGroup />
 						<External toggle={toggle} />
 					</MapContainer>
 					<TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
