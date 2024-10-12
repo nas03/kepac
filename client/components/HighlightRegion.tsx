@@ -10,11 +10,7 @@ interface IPropsHighlightRegion {
   time: number;
   toggle: boolean;
 }
-const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
-  map,
-  time,
-  toggle,
-}) => {
+const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle }) => {
   const [data, setData] = useState<PrecipitationRecord[]>([]);
 
   useEffect(() => {
@@ -33,9 +29,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
   }, [time]);
   function getColor(d: string) {
     if (data.length === 0) return null;
-    const precipitation = data.find(
-      (el) => el.district_code === d,
-    )?.avg_precipitation;
+    const precipitation = data.find((el) => el.district_code === d)?.avg_precipitation;
 
     console.log({ precipitation });
     if (!precipitation || precipitation < 0.2) return null;

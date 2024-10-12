@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import GeoRasterLayer from "georaster-layer-for-leaflet";
 import { useEffect } from "react";
 interface IPropsGeoTIFFLayer {
@@ -7,11 +7,7 @@ interface IPropsGeoTIFFLayer {
   georaster: any;
   toggle: boolean;
 }
-const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({
-  map,
-  georaster,
-  toggle,
-}) => {
+const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster, toggle }) => {
   const clearPreviousLayer = (map: L.Map) => {
     map.eachLayer((layer) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

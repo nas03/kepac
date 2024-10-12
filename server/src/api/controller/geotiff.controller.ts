@@ -1,7 +1,5 @@
 import { precipitationRepository } from '@/database';
 import { getFilename, getTimeInfoFromFilename } from '@/utils/utils';
-import childProc from 'child_process';
-import csv from 'csvtojson/v2';
 import type { Request, Response } from 'express';
 import fs from 'fs';
 import fsPromise from 'fs/promises';
@@ -121,11 +119,11 @@ const loadSampleData = async (req: Request, res: Response) => {
 		}));
 
 		// Exec python file
-		childProc.execSync('python3 scripts/extract.py');
-		const avgPrecipitationPayload = await csv().fromFile('assets/csv/data.csv');
+		// childProc.execSync('python3 scripts/extract.py');
+		// const avgPrecipitationPayload = await csv().fromFile('assets/csv/data.csv');
 
 		const payload = {
-			avg_precipitation: avgPrecipitationPayload,
+			// avg_precipitation: avgPrecipitationPayload,
 			precipitation: precipitationPayload,
 		};
 		const uploadData = await precipitationRepository.uploadDataset(payload);
