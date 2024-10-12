@@ -5,7 +5,8 @@
     "dev": "NODE_ENV=development nodemon -r tsconfig-paths/register src/server.ts",
     "prod": "NODE_ENV=production nodemon -r tsconfig-paths/register src/server.ts",
     "start": "ts-node -r tsconfig-paths/register src/server.ts",
-    "debug": "nodemon --inspect src/server.ts"
+    "debug": "nodemon --inspect src/server.ts",
+    "build": "tsc && tsc-alias"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -31,6 +32,8 @@
     "morgan": "^1.10.0",
     "pg": "^8.13.0",
     "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0"
+    "tsc-alias": "^1.8.10",
+    "tsconfig-paths": "^4.2.0",
+    "vercel": "^37.8.0"
   }
 }

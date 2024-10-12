@@ -30,3 +30,4 @@ build/
 *.ntvs*
 *.njsproj
 *.sln
+.vercel
