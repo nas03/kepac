@@ -2,57 +2,26 @@
 
 import { getRasterLayer } from "@/api/georaster";
 import { demoTime } from "@/data/time-demo";
-import type { RasterData } from "@/types";
+import { isHighlightLayer, isRasterLayer } from "@/helper/utils";
+import type { ExternalProps, RasterData } from "@/types";
 import { InfoOutlined } from "@mui/icons-material";
 import { Button, Divider, Popover } from "antd";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { createContext, memo, useCallback, useContext, useEffect, useState } from "react";
 import { useMap } from "react-leaflet";
-// Dynamic imports for all components
-
-/* const Marker = dynamic(
-	() => import('react-leaflet').then((mod) => mod.Marker),
-	{ ssr: false }
-);
-const Tooltip = dynamic(
-	() => import('react-leaflet').then((mod) => mod.Tooltip),
-	{ ssr: false }
-); */
-const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {
-  ssr: false,
-});
-
-const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
-  ssr: false,
-});
-
-const GeoTIFFLayer = dynamic(() => import("@/components").then((mod) => mod.GeoTIFFLayer), {
-  ssr: false,
-});
-
-const HighlightRegion = dynamic(() => import("@/components").then((mod) => mod.HighlightRegion), {
-  ssr: false,
-});
-
-const InfoTip = dynamic(() => import("@/components").then((mod) => mod.InfoTip), { ssr: false });
-
-const RankInfo = dynamic(() => import("@/components").then((mod) => mod.RankInfo), { ssr: false });
-
-const TimeSlider = dynamic(() => import("@/components").then((mod) => mod.TimeSlider), {
-  ssr: false,
-});
-
-const GradientScale = dynamic(() => import("@/components/GradientScale"), {
-  ssr: false,
-});
-const MarkerGroup = dynamic(() => import("@/components/MarkerGroup"), {
-  ssr: false,
-});
-const SetBoundsRectangles = dynamic(() => import("@/components/SetBoundsRectangles"), {
-  ssr: false,
-});
+import {
+	GeoTIFFLayer,
+	GradientScale,
+	HighlightRegion,
+	InfoTip,
+	MapContainer,
+	MarkerGroup,
+	RankInfo,
+	SetBoundsRectangles,
+	TileLayer,
+	TimeSlider,
+} from "./import";
 
 // Context definitions
 const TimeContext = createContext<{
@@ -64,13 +33,6 @@ const PrecipitationContext = createContext<{
   precipitation: number;
   setPrecipitation: (value: number) => void;
 } | null>(null);
-
-interface ExternalProps {
-  toggle: {
-    precipitation: boolean;
-    warn: boolean;
-  };
-}
 
 const External = dynamic(
   () => {
@@ -88,33 +50,13 @@ const External = dynamic(
         });
       }, [time]);
 
-      interface RasterLayer {
-        rasters: unknown;
-        georasters: unknown;
-      }
-      interface HighlightLayer extends L.Layer {
-        defaultOptions?: {
-          attribution?: string;
-        };
-      }
-
-      const isRasterLayer = (layer: unknown): layer is RasterLayer => {
-        return (
-          typeof layer === "object" && layer !== null && "rasters" in layer && "georasters" in layer
-        );
-      };
-
       useEffect(() => {
         map.eachLayer((layer) => {
-          if (!toggle.precipitation) {
-            if (isRasterLayer(layer)) {
-              map.removeLayer(layer);
-            }
+          if (!toggle.precipitation && isRasterLayer(layer)) {
+            map.removeLayer(layer);
           }
-          if (!toggle.warn) {
-            if ((layer as HighlightLayer).defaultOptions?.attribution === "highlightRegion") {
-              map.removeLayer(layer);
-            }
+          if (!toggle.warn && isHighlightLayer(layer)) {
+            map.removeLayer(layer);
           }
         });
       }, [toggle, map]);
@@ -196,7 +138,6 @@ const LeafletMap = () => {
 
   return (
     <>
-      {/* <LeafletCSS /> */}
       <TimeContext.Provider value={{ time, setTime }}>
         <OverlayLayer />
         <RightOverlayLayer />

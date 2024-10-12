@@ -25,3 +25,20 @@ export type PrecipitationRecord = {
   updated_at: Date | null;
   created_at: Date | null;
 };
+
+export interface ExternalProps {
+  toggle: {
+    precipitation: boolean;
+    warn: boolean;
+  };
+}
+
+export interface RasterLayer {
+  rasters: unknown;
+  georasters: unknown;
+}
+export interface HighlightLayer extends L.Layer {
+  defaultOptions?: {
+    attribution?: string;
+  };
+}
