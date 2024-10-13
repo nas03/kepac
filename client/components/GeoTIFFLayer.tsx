@@ -1,4 +1,5 @@
 "use client";
+import { isRasterLayer } from "@/helper/utils";
 import GeoRasterLayer from "georaster-layer-for-leaflet";
 import { useEffect } from "react";
 interface IPropsGeoTIFFLayer {
@@ -10,8 +11,7 @@ interface IPropsGeoTIFFLayer {
 const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster, toggle }) => {
   const clearPreviousLayer = (map: L.Map) => {
     map.eachLayer((layer) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      if ((layer as any).rasters && (layer as any).georasters) {
+      if (isRasterLayer(layer)) {
         map.removeLayer(layer);
       }
     });
