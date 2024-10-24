@@ -8,5 +8,6 @@ import (
 
 func GeoTIFFRoutes(app *fiber.App) {
 	app.Get("/geotiff", controller.GetGeoTIFF)
-
+	app.Post("fds")
+	app
 }
