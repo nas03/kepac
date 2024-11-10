@@ -1,10 +1,15 @@
 import type { HighlightLayer, RasterLayer } from "@/types";
-
+import moment from "moment";
 export const formatToISOWithTimezone = (dateInput: string) => {
   const date = new Date(dateInput);
   const isoString = date.toLocaleString();
   if (isoString === "Invalid Date") return "None";
   return isoString;
+};
+
+export const formatDate = (dateInput: string, format: string) => {
+  // return moment(dateInput, "YYYY-MM-DD HH:mm:ss.SSSSSS").format("dddd, D MMMM YYYY");
+  return moment(dateInput, "YYYY-MM-DD HH:mm:ss.SSSSSS").format(format);
 };
 export const formatToDate = (dateInput: string) => {
   const time = new Date(dateInput).toLocaleTimeString();

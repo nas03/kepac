@@ -1,3 +1,5 @@
+import fs from 'fs';
+import { Client } from 'pg';
 export const getFilename = (path: string) => {
 	const buffer = String(path).split('/');
 	return buffer[buffer.length - 1];
@@ -18,3 +20,63 @@ export const getTimeInfoFromFilename = (filename: string) => {
 		parseInt(parts.slice(12, 14)) // second
 	);
 };
+
+import { exec } from 'child_process';
+import path from 'path';
+
+// Convert .tif file to PostgreSQL query file
+export const convertToSQL = (inputFile: string, outputFile: string) => {
+	try {
+		const tableName = 'raster_table';
+
+		const command = `raster2pgsql -s SRID -I -C ${inputFile} public.${tableName} > ${outputFile}`;
+
+		exec(command, (error, stdout, stderr) => {
+			if (error) {
+				console.error(`Error executing command: ${error.message}`);
+				return;
+			}
+			if (stderr) {
+				console.error(`Error: ${stderr}`);
+			}
+			console.log(`SQL file generated at ${outputFile}`);
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+// convertToSQL(
+// 	'/Users/anhson/Downloads/DATA_SV/Precipitation/Radar/2020/10/01/Radar_20201001230000.tif',
+// 	'assets/sql/output.sql'
+// );
+
+// Execute PostgreSQL execution file
+async function executeSqlFile(filePath: string) {
+	try {
+		const client = new Client({
+			user: 'postgres',
+			host: 'localhost',
+			database: 'air_quality',
+			password: '',
+			port: 5432,
+		});
+
+		try {
+			await client.connect();
+			const sql = fs.readFileSync(path.resolve(filePath), 'utf8');
+			await client.query(sql);
+			console.log('SQL file executed successfully');
+		} catch (error) {
+			console.error('Error executing SQL file:', error);
+		} finally {
+			await client.end();
+		}
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+// executeSqlFile(
+// 	'/Users/anhson/Documents/Projects/kepac/server/assets/sql/output.sql'
+// );

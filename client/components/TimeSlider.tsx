@@ -1,8 +1,10 @@
+import { demoTime } from "@/data/time-demo";
+import { formatDate } from "@/helper/utils";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 interface TimeSliderProps {
   onTimeChange: (time: number) => void;
   initialTime: number;
@@ -17,6 +19,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
     setTime(newTime);
   };
 
+  const steps = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24];
   useEffect(() => {
     if (play) {
       const intervalId = setInterval(() => {
@@ -35,8 +38,8 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
   }, [play, time, onTimeChange]);
   return (
     <>
-      <div className="flex flex-row w-screen h-[5vh] z-[1000000]">
-        <div className="flex flex-row px-3 items-center">
+      <div className="flex flex-row w-screen h-[6vh] z-[1000000]">
+        <div className="flex flex-row px-3 items-center flex-shrink">
           <ArrowLeftIcon
             className="cursor-pointer"
             fontSize="large"
@@ -67,15 +70,27 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             }}
           />
         </div>
-        <input
-          type="range"
-          min="0"
-          step={2}
-          max="24"
-          value={initialTime}
-          onChange={handleChange}
-          className="time-slider grow"
-        />
+        <div className="flex flex-col items-start justify-between grow h-full">
+          <p className="font-semibold text-lg mt-2">
+            {formatDate(demoTime[time / 2], "dddd, D MMMM YYYY")}
+          </p>
+          <input
+            type="range"
+            min="0"
+            step={2}
+            max="24"
+            value={initialTime}
+            onChange={handleChange}
+            className="w-full m-0"
+          />
+          <datalist className="flex  flex-row justify-between m-0 w-full p=0">
+            {steps.map((step: number, index: number) => (
+              <option className="p-0" value={step} key={index}>
+                {step.toString().padStart(2, "0")}:00
+              </option>
+            ))}
+          </datalist>
+        </div>
       </div>
     </>
   );

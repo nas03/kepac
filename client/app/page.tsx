@@ -1,27 +1,32 @@
 "use client";
 
-import { getRasterLayer } from "@/api/georaster";
-import { demoTime } from "@/data/time-demo";
-import { isHighlightLayer, isRasterLayer } from "@/helper/utils";
-import type { ExternalProps, RasterData } from "@/types";
 import { InfoOutlined } from "@mui/icons-material";
 import { Button, Divider, Popover } from "antd";
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { createContext, memo, useCallback, useContext, useEffect, useState } from "react";
+
+// Components
 import { useMap } from "react-leaflet";
 import {
-	GeoTIFFLayer,
-	GradientScale,
-	HighlightRegion,
-	InfoTip,
-	MapContainer,
-	MarkerGroup,
-	RankInfo,
-	SetBoundsRectangles,
-	TileLayer,
-	TimeSlider,
+  GeoTIFFLayer,
+  GradientScale,
+  HighlightRegion,
+  InfoTip,
+  MapContainer,
+  MarkerGroup,
+  RankInfo,
+  SetBoundsRectangles,
+  TileLayer,
+  TimeSlider,
 } from "./import";
+// Data & Helpers
+import { getRasterLayer } from "@/api/georaster";
+import { demoTime } from "@/data/time-demo";
+import { isHighlightLayer, isRasterLayer } from "@/helper/utils";
+
+// Types
+import type { ExternalProps, RasterData } from "@/types";
 
 // Context definitions
 const TimeContext = createContext<{
@@ -34,6 +39,7 @@ const PrecipitationContext = createContext<{
   setPrecipitation: (value: number) => void;
 } | null>(null);
 
+// External component with dynamic import
 const External = dynamic(
   () => {
     const ExternalComponent = ({ toggle }: ExternalProps) => {
@@ -45,9 +51,7 @@ const External = dynamic(
       const { time } = useContext(TimeContext)!;
 
       useEffect(() => {
-        getRasterLayer(demoTime[time / 2]).then((rasterLayer) => {
-          setRasterLayer(rasterLayer);
-        });
+        getRasterLayer(demoTime[time / 2]).then(setRasterLayer);
       }, [time]);
 
       useEffect(() => {
@@ -74,10 +78,8 @@ const External = dynamic(
   { ssr: false },
 );
 
+// Main component
 const LeafletMap = () => {
-  const latitude = 17.9459;
-  const longitude = 105.97;
-
   const [time, setTime] = useState(0);
   const [precipitation, setPrecipitation] = useState<number>(0);
   const [toggle, setToggle] = useState({
@@ -96,11 +98,12 @@ const LeafletMap = () => {
     [],
   );
 
-  // Memoized OverlayLayer
+  // Overlay components
   const OverlayLayer = memo(() => {
     const { time } = useContext(TimeContext)!;
+
     return (
-      <div className="absolute z-[10000] ml-[1rem] mt-[5rem] max-h-[95vh]">
+      <div className="absolute z-[10000] ml-[5rem] mt-[1rem] max-h-[95vh]">
         <RankInfo toggle={toggle} onToggle={handleToggleLayer} time={time} />
       </div>
     );
@@ -137,28 +140,26 @@ const LeafletMap = () => {
   RightOverlayLayer.displayName = "RightOverlayLayer";
 
   return (
-    <>
-      <TimeContext.Provider value={{ time, setTime }}>
-        <OverlayLayer />
-        <RightOverlayLayer />
-        <PrecipitationContext.Provider value={{ precipitation, setPrecipitation }}>
-          <MapContainer
-            center={[latitude, longitude]}
-            zoom={7}
-            style={{ width: "100vw", height: "95vh" }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <SetBoundsRectangles />
-            <MarkerGroup />
-            <External toggle={toggle} />
-          </MapContainer>
-          <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
-        </PrecipitationContext.Provider>
-      </TimeContext.Provider>
-    </>
+    <TimeContext.Provider value={{ time, setTime }}>
+      <OverlayLayer />
+      <RightOverlayLayer />
+      <PrecipitationContext.Provider value={{ precipitation, setPrecipitation }}>
+        <MapContainer
+          center={[17.9459, 105.97]}
+          zoom={7}
+          style={{ width: "100vw", height: "94vh" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <SetBoundsRectangles />
+          <MarkerGroup />
+          <External toggle={toggle} />
+        </MapContainer>
+        <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
+      </PrecipitationContext.Provider>
+    </TimeContext.Provider>
   );
 };
 

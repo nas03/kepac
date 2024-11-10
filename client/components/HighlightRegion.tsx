@@ -31,12 +31,21 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle })
     if (data.length === 0) return null;
     const precipitation = data.find((el) => el.district_code === d)?.avg_precipitation;
 
-    console.log({ precipitation });
     if (!precipitation || precipitation < 0.2) return null;
     if (precipitation <= 1) return "#3a92a1";
     if (precipitation <= 5) return "#49a43a";
     if (precipitation <= 30) return "#993839";
     if (precipitation > 30) return "#a33782";
+  }
+  const showDiagram = (layer: L.GeoJSON) => {
+    if ((layer.feature as geojson.Feature)?.properties === null) {
+      return null;
+    }
+    const province = (layer.feature as geojson.Feature)?.properties?.District;
+    return province;
+  };
+  function onFeature(feature: geojson.Feature, layer: L.GeoJSON) {
+    layer.addEventListener("click", () => showDiagram(layer));
   }
 
   function style(feature: geojson.Feature | undefined) {
@@ -73,6 +82,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle })
     L.geoJson(vnDistrict as FeatureCollection, {
       style: style,
       attribution: "highlightRegion",
+      onEachFeature: onFeature,
     }).addTo(map);
   };
 

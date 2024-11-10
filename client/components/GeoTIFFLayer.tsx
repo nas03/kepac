@@ -28,7 +28,7 @@ const GeoTIFFLayer: React.FC<IPropsGeoTIFFLayer> = ({ map, georaster, toggle }) 
     return () => {
       map.removeLayer(layer);
     };
-  }, [georaster, toggle]);
+  }, [georaster, toggle, map]);
 
   return null;
 };
