@@ -1,4 +1,5 @@
 import { avgPrecipitationRepository } from '@/database';
+import { removeVietnameseAccents } from '@/utils/utils';
 import type { Request, Response } from 'express';
 
 export const getMedianPrecipitation = async (req: Request, res: Response) => {
@@ -32,14 +33,18 @@ export const getAvgPrecipitationByLocation = async (
 	res: Response
 ) => {
 	try {
-		const district_code = req.params['district_code'];
+		const district_code = (req.query['district_code'] as string) || '';
+		const province = (req.query['province'] as string) || '';
 		const data = await avgPrecipitationRepository.getAvgPrecipitationByLocation(
 			district_code
+		);
+		const result = data.filter(
+			(el) => removeVietnameseAccents(el.province_name) === province
 		);
 		return res.status(200).json({
 			status: 'ok',
 			message: null,
-			data,
+			data: result,
 		});
 	} catch (error) {
 		console.log('Server error', error);

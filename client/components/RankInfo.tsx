@@ -26,7 +26,7 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
     setFilteredData(() => filter);
   };
   useEffect(() => {
-    getAvgPrecipitation(demoTime[time / 2]).then((data) => {
+    getAvgPrecipitation(demoTime[time]).then((data) => {
       setData(data);
       setFilteredData(data);
     });
@@ -75,7 +75,7 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
               id="panel1-header"
             >
               <h2 className="text-center font-bold uppercase">
-                Xếp hạng theo quận ({formatToDate(demoTime[time / 2])})
+                Xếp hạng theo quận ({formatToDate(demoTime[time])})
               </h2>
             </AccordionSummary>
             <AccordionDetails>

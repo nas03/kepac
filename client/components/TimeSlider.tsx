@@ -19,7 +19,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
     setTime(newTime);
   };
 
-  const steps = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24];
+  const steps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
   useEffect(() => {
     if (play) {
       const intervalId = setInterval(() => {
@@ -72,13 +72,13 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
         </div>
         <div className="flex flex-col items-start justify-between grow h-full">
           <p className="font-semibold text-lg mt-2">
-            {formatDate(demoTime[time / 2], "dddd, D MMMM YYYY")}
+            {formatDate(demoTime[time], "dddd, D MMMM YYYY")}
           </p>
           <input
             type="range"
             min="0"
-            step={2}
-            max="24"
+            step={1}
+            max="14"
             value={initialTime}
             onChange={handleChange}
             className="w-full m-0"
@@ -86,7 +86,9 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
           <datalist className="flex  flex-row justify-between m-0 w-full p=0">
             {steps.map((step: number, index: number) => (
               <option className="p-0" value={step} key={index}>
-                {step.toString().padStart(2, "0")}:00
+                {step === 9
+                  ? `${step.toString().padStart(2, "0")}:00 (Now)`
+                  : `${step.toString().padStart(2, "0")}:00`}
               </option>
             ))}
           </datalist>

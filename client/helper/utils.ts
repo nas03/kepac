@@ -39,3 +39,11 @@ export const isHighlightLayer = (layer: unknown): layer is HighlightLayer => {
     typeof candidate.defaultOptions.attribution === "string"
   );
 };
+
+export const removeVietnameseAccents = (str: string) => {
+	return str
+		.normalize('NFD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/đ/g, 'd')
+		.replace(/Đ/g, 'D');
+}

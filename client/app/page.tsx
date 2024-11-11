@@ -18,7 +18,7 @@ import {
   RankInfo,
   SetBoundsRectangles,
   TileLayer,
-  TimeSlider
+  TimeSlider,
 } from "./import";
 // Data & Helpers
 import { getRasterLayer } from "@/api/georaster";
@@ -54,7 +54,7 @@ const External = dynamic(
       const { time } = useContext(TimeContext)!;
 
       useEffect(() => {
-        getRasterLayer(demoTime[time / 2]).then(setRasterLayer);
+        getRasterLayer(demoTime[time]).then(setRasterLayer);
       }, [time]);
 
       useEffect(() => {
@@ -89,7 +89,7 @@ const External = dynamic(
 
 // Main component
 const LeafletMap = () => {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(9);
   const [precipitation, setPrecipitation] = useState<number>(0);
   const [toggle, setToggle] = useState({
     precipitation: false,
@@ -166,49 +166,7 @@ const LeafletMap = () => {
           />
           <SetBoundsRectangles />
           <External toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
-          <MarkerGroup position={position} predictData={predictData} time={time} />
-          {/* <Marker position={position} icon={markerIcon}>
-            <Popup className="bg-transparent w-[800px] h-[300]">
-              <h3 className="font-semibold text-lg text-center w-[800px]">
-                Predicted Precipitation
-              </h3>
-              <BarChart
-                xAxis={[
-                  {
-                    scaleType: "band",
-                    label: "Time (o'clock)",
-                    data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24].map((el) =>
-                      el === time ? "Now" : `${el.toString().padStart(2, "0")}:00`,
-                    ),
-                  },
-                ]}
-                series={[
-                  {
-                    data: predictData,
-                    highlightScope: {
-                      highlight: "item",
-                      fade: "global",
-                    },
-                    valueFormatter: (value) => {
-                      return value !== null ? `${value} mm` : "0 mm";
-                    },
-                  },
-                ]}
-                highlightedItem={{
-                  dataIndex: 2,
-                }}
-                sx={{
-                  [`& .${axisClasses.left} .${axisClasses.label}`]: {
-                    transform: "translateX(-10px)",
-                  },
-                }}
-                yAxis={[{ label: "Precipitation (mm)" }]}
-                width={800}
-                height={300}
-                className="z-[100000]"
-              />
-            </Popup>
-          </Marker> */}
+          <MarkerGroup position={position} predictData={predictData} />
         </MapContainer>
         <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
       </PrecipitationContext.Provider>

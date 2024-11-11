@@ -14,9 +14,20 @@ export const getAvgPrecipitation = async (time: string): Promise<PrecipitationRe
   }
 };
 
-export const getAvgPrecipitationByLocation = async (district_code: string): Promise<number[]> => {
+export const getAvgPrecipitationByLocation = async ({
+  district_code,
+  province,
+}: {
+  district_code: string;
+  province: string;
+}): Promise<number[]> => {
   try {
-    const response = await api.get(`/precipitation/${district_code}`);
+    const response = await api.get(`/precipitation/district`, {
+      params: {
+        district_code: district_code,
+        province: province,
+      },
+    });
     const data = (response.data.data as PrecipitationRecord[]).map(
       (record) => record.avg_precipitation,
     );

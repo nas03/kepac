@@ -4,10 +4,9 @@ import { Marker, Popup, Tooltip } from "react-leaflet";
 
 interface IPropsMarkerGroupProps {
   position: LatLngExpression;
-  time: number;
   predictData: number[];
 }
-const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, time, predictData }) => {
+const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }) => {
   const createTransparentIcon = (color = "#1e90ff") => {
     return L.divIcon({
       html: `
@@ -47,12 +46,17 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, time, predict
             xAxis={[
               {
                 scaleType: "band",
-                label: "Time (o'clock)",
-                data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24].map((el) =>
-                  el === time
+                data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
+                  el === 9
                     ? `${el.toString().padStart(2, "0")}:00 \n (Now)`
                     : `${el.toString().padStart(2, "0")}:00`,
                 ),
+                colorMap: {
+                  type: "ordinal",
+                  colors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
+                    el > 9 ? "#08589e" : '#4eb3d3',
+                  ),
+                },
               },
             ]}
             series={[

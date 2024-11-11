@@ -1,6 +1,7 @@
 import { getAvgPrecipitation, getAvgPrecipitationByLocation } from "@/api";
 import { vnDistrict } from "@/data/district";
 import { demoTime } from "@/data/time-demo";
+import { removeVietnameseAccents } from "@/helper/utils";
 import { PrecipitationRecord } from "@/types";
 import geojson, { FeatureCollection } from "geojson";
 import L, { LatLngExpression } from "leaflet";
@@ -24,7 +25,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
   useEffect(() => {
     let isMounted = true;
     const fetchData = async () => {
-      const data = await getAvgPrecipitation(demoTime[time / 2]);
+      const data = await getAvgPrecipitation(demoTime[time]);
       if (isMounted) {
         setData(data);
       }
@@ -35,16 +36,20 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
       isMounted = false;
     };
   }, [time]);
-  function getColor(d: string) {
+  function getColor(district: string, province: string) {
     if (data.length === 0) return null;
-    const precipitation = data.find((el) => el.district_code === d)?.avg_precipitation;
+    const precipitation = data.find(
+      (el) =>
+        el.district_code === district && removeVietnameseAccents(el.province_name) === province,
+    )?.avg_precipitation;
 
-    if (!precipitation || precipitation < 0.2) return null;
+    if (!precipitation || precipitation <= 0.2) return null;
     if (precipitation <= 1) return "#3a92a1";
     if (precipitation <= 5) return "#49a43a";
     if (precipitation <= 30) return "#993839";
     if (precipitation > 30) return "#a33782";
   }
+
   const showDiagram = async (e: L.LeafletMouseEvent, layer: L.GeoJSON) => {
     if ((layer.feature as geojson.Feature)?.properties === null) {
       return null;
@@ -53,11 +58,16 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
     map.fitBounds(e.target.getBounds());
 
     const district_code = (layer.feature as geojson.Feature)?.properties?.District;
-    const predictedPrecipitation = await getAvgPrecipitationByLocation(district_code);
-    setPredictData(predictedPrecipitation)
-    setPosition([e.latlng.lat, e.latlng.lng])
+    const province = (layer.feature as geojson.Feature)?.properties?.Province;
+    const predictedPrecipitation = await getAvgPrecipitationByLocation({
+      district_code: district_code,
+      province: province,
+    });
+    setPredictData(predictedPrecipitation);
+    setPosition([e.latlng.lat, e.latlng.lng]);
     return null;
   };
+
   function onFeature(feature: geojson.Feature, layer: L.GeoJSON) {
     // layer.addEventListener("click", () => showDiagram(feature, layer));
     layer.on({
@@ -66,7 +76,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
   }
 
   function style(feature: geojson.Feature | undefined) {
-    const color = getColor(feature?.properties?.District);
+    const color = getColor(feature?.properties?.District, feature?.properties?.Province);
     if (!color) {
       return {
         weight: 0,
