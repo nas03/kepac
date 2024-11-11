@@ -88,6 +88,9 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                       <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">
                         Địa điểm
                       </th>
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">
+                        Tỉnh
+                      </th>
                       <th className="border-b-2 border-b-gray-100 p-2 text-left font-sans uppercase text-black">
                         Lượng mưa
                       </th>
@@ -99,8 +102,11 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                         <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
                           {index + 1}
                         </td>
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
-                          {el?.district_name} - {el?.province_name}
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left  text-xs font-semibold">
+                          {el?.district_name}
+                        </td>
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left text-xs font-semibold">
+                          {el?.province_name}
                         </td>
                         <td className="w-fit border-b-2 border-b-gray-100 p-3 text-sm">
                           {Number(el?.avg_precipitation).toFixed(2)} mm

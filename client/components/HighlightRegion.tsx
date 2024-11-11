@@ -36,6 +36,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
       isMounted = false;
     };
   }, [time]);
+
   function getColor(district: string, province: string) {
     if (data.length === 0) return null;
     const precipitation = data.find(
@@ -69,7 +70,6 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
   };
 
   function onFeature(feature: geojson.Feature, layer: L.GeoJSON) {
-    // layer.addEventListener("click", () => showDiagram(feature, layer));
     layer.on({
       click: (e) => showDiagram(e, layer),
     });

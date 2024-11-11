@@ -45,8 +45,8 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             className="cursor-pointer"
             fontSize="large"
             onClick={() => {
-              onTimeChange(initialTime - 2);
-              setTime((prev) => prev - 2);
+              onTimeChange(initialTime - 1);
+              setTime((prev) => prev - 1);
             }}
           />
           {!play ? (
@@ -66,8 +66,8 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             className="cursor-pointer"
             fontSize="large"
             onClick={() => {
-              onTimeChange(initialTime + 2);
-              setTime((prev) => prev + 2);
+              onTimeChange(initialTime + 1);
+              setTime((prev) => prev + 1);
             }}
           />
         </div>
