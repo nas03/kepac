@@ -23,11 +23,12 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
   useEffect(() => {
     if (play) {
       const intervalId = setInterval(() => {
-        if (time === 24) {
+        if (time === 14) {
+          setPlay((prev) => !prev);
           clearInterval(intervalId);
         } else {
-          onTimeChange(time + 2);
-          setTime((prevTime) => prevTime + 2);
+          onTimeChange(time + 1);
+          setTime((prevTime) => prevTime + 1);
         }
       }, 5000);
 

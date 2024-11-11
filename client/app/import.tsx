@@ -48,3 +48,6 @@ export const MarkerGroup = dynamic(() => import("@/components/MarkerGroup"), {
 export const SetBoundsRectangles = dynamic(() => import("@/components/SetBoundsRectangles"), {
   ssr: false,
 });
+export const Map = dynamic(() => import("@/components/Map"), {
+  ssr: false,
+});

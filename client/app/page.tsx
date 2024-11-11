@@ -1,8 +1,5 @@
 "use client";
 
-import { InfoOutlined } from "@mui/icons-material";
-
-import { Button, Divider, Popover } from "antd";
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { createContext, memo, useCallback, useContext, useEffect, useState } from "react";
@@ -13,18 +10,18 @@ import {
   GradientScale,
   HighlightRegion,
   InfoTip,
-  MapContainer,
+  Map,
   MarkerGroup,
   RankInfo,
   SetBoundsRectangles,
-  TileLayer,
-  TimeSlider,
+  TimeSlider
 } from "./import";
 // Data & Helpers
 import { getRasterLayer } from "@/api/georaster";
 import { demoTime } from "@/data/time-demo";
 import { isHighlightLayer, isRasterLayer } from "@/helper/utils";
 import type { ExternalProps, RasterData } from "@/types";
+import { Divider, Popover } from "antd";
 import { LatLngExpression } from "leaflet";
 
 // Types
@@ -113,7 +110,7 @@ const LeafletMap = () => {
     const { time } = useContext(TimeContext)!;
 
     return (
-      <div className="absolute z-[10000] ml-[5rem] mt-[1rem] max-h-[95vh]">
+      <div className="absolute z-[10000] ml-[5rem] mt-[1rem]">
         <RankInfo toggle={toggle} onToggle={handleToggleLayer} time={time} />
       </div>
     );
@@ -138,7 +135,7 @@ const LeafletMap = () => {
             title={<Header />}
             placement="left"
           >
-            <Button type="default" className="rounded-full" icon={<InfoOutlined />} />
+            {/* <button className="rounded-full" icon={<InfoOutlined />} /> */}
           </Popover>
         </div>
 
@@ -157,22 +154,11 @@ const LeafletMap = () => {
       <PrecipitationContext.Provider value={{ precipitation, setPrecipitation }}>
         <div className="flex flex-col w-screen h-screen">
           <div className="w-screen h-[90%]">
-            <MapContainer
-              center={[17.9459, 105.97]}
-              zoom={7}
-              style={{
-                width: "100vw",
-                height: "100%",
-              }}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
+            <Map>
               <SetBoundsRectangles />
               <External toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
               <MarkerGroup position={position} predictData={predictData} />
-            </MapContainer>
+            </Map>
           </div>
           <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
         </div>

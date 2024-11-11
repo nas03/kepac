@@ -5,7 +5,7 @@ import { PrecipitationRecord } from "@/types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
-import { Button } from "antd";
+// import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 
 interface IPropsRankInfo {
@@ -34,7 +34,7 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
 
   return (
     <>
-      <div className="relative flex h-[80vh] max-w-[30rem] flex-col gap-5 bg-transparent">
+      <div className="relative flex max-h-[80vh] max-w-[30rem] flex-col gap-5 bg-transparent">
         <div className="flex flex-row items-center gap-10">
           <div className="search-bar flex h-[3rem] flex-row items-center rounded-md pl-1 bg-white p-1 text-black">
             <div className="flex flex-row items-center rounded-md p-1 justify-center hover:bg-slate-300 hover:text-blue-400">
@@ -48,14 +48,14 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
             />
           </div>
           <div className="flex flex-row gap-2">
-            <Button
-              className={`rounded-3xl font-semibold hover:cursor-pointer ${toggle.warn ? "bg-[#0057FC] text-white" : "bg-white text-black"}`}
+            <button
+              className={`border-2 border-slate-200 text-sm px-3 py-1 max-h-fit min-w-fit rounded-3xl font-semibold hover:cursor-pointer ${toggle.warn ? "bg-[#0057FC] text-white" : "bg-white text-black"}`}
               onClick={() => onToggle({ precipitation: toggle.warn, warn: !toggle.warn })}
             >
               Bản đồ cảnh báo
-            </Button>
-            <Button
-              className={`rounded-3xl font-semibold hover:cursor-pointer ${toggle.precipitation ? "bg-[#0057FC] text-white" : "bg-white text-black"}`}
+            </button>
+            <button
+              className={`border-2 border-slate-200 text-sm px-3 py-1 max-h-fit min-w-fit rounded-3xl font-semibold hover:cursor-pointer ${toggle.precipitation ? "bg-[#0057FC] text-white" : "bg-white text-black"}`}
               onClick={() =>
                 onToggle({
                   precipitation: !toggle.precipitation,
@@ -64,7 +64,7 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
               }
             >
               Bản đồ mưa
-            </Button>
+            </button>
           </div>
         </div>
         <div>
