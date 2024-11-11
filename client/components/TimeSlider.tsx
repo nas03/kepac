@@ -70,7 +70,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             }}
           />
         </div>
-        <div className="flex flex-col items-start justify-between grow h-full">
+        <div className="flex flex-col items-start justify-between grow h-full pr-3">
           <p className="font-semibold text-lg mt-2">
             {formatDate(demoTime[time], "dddd, D MMMM YYYY")}
           </p>
@@ -81,9 +81,9 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             max="14"
             value={initialTime}
             onChange={handleChange}
-            className="w-[95%] m-0"
+            className="w-full m-0"
           />
-          <datalist className="flex  flex-row justify-between m-0 w-[95%] p-0">
+          <datalist className="flex  flex-row justify-between m-0 w-full p-0">
             {steps.map((step: number, index: number) => (
               <option className="p-0" value={step} key={index}>
                 {step === 9
