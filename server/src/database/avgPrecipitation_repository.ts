@@ -18,3 +18,13 @@ export const uploadData = async (payload: AvgPrecipitation[]) => {
 	if (!query) return false;
 	return true;
 };
+
+export const getAvgPrecipitationByLocation = async (district_code: string) => {
+	const query = await db('avg_precipitation')
+		.select('*')
+		.where({
+			district_code: district_code,
+		})
+		.orderBy('time', 'asc');
+	return query;
+};

@@ -26,3 +26,27 @@ export const getMedianPrecipitation = async (req: Request, res: Response) => {
 		});
 	}
 };
+
+export const getAvgPrecipitationByLocation = async (
+	req: Request,
+	res: Response
+) => {
+	try {
+		const district_code = req.params['district_code'];
+		const data = await avgPrecipitationRepository.getAvgPrecipitationByLocation(
+			district_code
+		);
+		return res.status(200).json({
+			status: 'ok',
+			message: null,
+			data,
+		});
+	} catch (error) {
+		console.log('Server error', error);
+		return res.status(500).json({
+			status: 'error',
+			message: 'Server Error',
+			data: null,
+		});
+	}
+};

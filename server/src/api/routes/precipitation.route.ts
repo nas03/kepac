@@ -9,4 +9,8 @@ precipitationRoute.get(
 	use(precipitationController.getMedianPrecipitation)
 );
 
+precipitationRoute.get(
+	'/precipitation/:district_code',
+	use(precipitationController.getAvgPrecipitationByLocation)
+);
 export default precipitationRoute;
