@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { LatLngExpression } from "leaflet";
+
 export type RasterData = {
   layer: {
     pixelValuesToColorFn: (
@@ -31,6 +33,8 @@ export interface ExternalProps {
     precipitation: boolean;
     warn: boolean;
   };
+  setPredictData: (data: number[]) => void;
+  setPosition: (data: LatLngExpression) => void;
 }
 
 export interface RasterLayer {

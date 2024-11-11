@@ -1,16 +1,24 @@
-import { getAvgPrecipitation } from "@/api";
+import { getAvgPrecipitation, getAvgPrecipitationByLocation } from "@/api";
 import { vnDistrict } from "@/data/district";
 import { demoTime } from "@/data/time-demo";
 import { PrecipitationRecord } from "@/types";
 import geojson, { FeatureCollection } from "geojson";
-import L from "leaflet";
+import L, { LatLngExpression } from "leaflet";
 import { useEffect, useState } from "react";
 interface IPropsHighlightRegion {
   map: L.Map;
   time: number;
   toggle: boolean;
+  setPredictData: (data: number[]) => void;
+  setPosition: (data: LatLngExpression) => void;
 }
-const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle }) => {
+const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
+  map,
+  time,
+  toggle,
+  setPredictData,
+  setPosition,
+}) => {
   const [data, setData] = useState<PrecipitationRecord[]>([]);
 
   useEffect(() => {
@@ -37,15 +45,24 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle })
     if (precipitation <= 30) return "#993839";
     if (precipitation > 30) return "#a33782";
   }
-  const showDiagram = (layer: L.GeoJSON) => {
+  const showDiagram = async (e: L.LeafletMouseEvent, layer: L.GeoJSON) => {
     if ((layer.feature as geojson.Feature)?.properties === null) {
       return null;
     }
-    const province = (layer.feature as geojson.Feature)?.properties?.District;
-    return province;
+    /* Zoom to location */
+    map.fitBounds(e.target.getBounds());
+
+    const district_code = (layer.feature as geojson.Feature)?.properties?.District;
+    const predictedPrecipitation = await getAvgPrecipitationByLocation(district_code);
+    setPredictData(predictedPrecipitation)
+    setPosition([e.latlng.lat, e.latlng.lng])
+    return null;
   };
   function onFeature(feature: geojson.Feature, layer: L.GeoJSON) {
-    layer.addEventListener("click", () => showDiagram(layer));
+    // layer.addEventListener("click", () => showDiagram(feature, layer));
+    layer.on({
+      click: (e) => showDiagram(e, layer),
+    });
   }
 
   function style(feature: geojson.Feature | undefined) {

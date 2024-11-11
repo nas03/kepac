@@ -7,6 +7,12 @@ export const MapContainer = dynamic(() => import("react-leaflet").then((mod) => 
 export const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
   ssr: false,
 });
+export const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), {
+  ssr: false,
+});
+export const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
+  ssr: false,
+});
 
 export const GeoTIFFLayer = dynamic(() => import("@/components").then((mod) => mod.GeoTIFFLayer), {
   ssr: false,
@@ -42,4 +48,3 @@ export const MarkerGroup = dynamic(() => import("@/components/MarkerGroup"), {
 export const SetBoundsRectangles = dynamic(() => import("@/components/SetBoundsRectangles"), {
   ssr: false,
 });
-

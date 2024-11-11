@@ -1,9 +1,7 @@
 import api from "@/helper/axios";
 import { PrecipitationRecord } from "@/types";
 
-export const getAvgPrecipitation = async (
-  time: string,
-): Promise<PrecipitationRecord[]> => {
+export const getAvgPrecipitation = async (time: string): Promise<PrecipitationRecord[]> => {
   try {
     const response = await api.get("/precipitation/medium", {
       params: {
@@ -12,6 +10,19 @@ export const getAvgPrecipitation = async (
     });
     return response.data.data;
   } catch {
+    return [];
+  }
+};
+
+export const getAvgPrecipitationByLocation = async (district_code: string): Promise<number[]> => {
+  try {
+    const response = await api.get(`/precipitation/${district_code}`);
+    const data = (response.data.data as PrecipitationRecord[]).map(
+      (record) => record.avg_precipitation,
+    );
+    return data;
+  } catch (error) {
+    console.log(error);
     return [];
   }
 };

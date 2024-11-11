@@ -1,11 +1,11 @@
 "use client";
 
 import { InfoOutlined } from "@mui/icons-material";
+
 import { Button, Divider, Popover } from "antd";
 import "leaflet/dist/leaflet.css";
 import dynamic from "next/dynamic";
 import { createContext, memo, useCallback, useContext, useEffect, useState } from "react";
-
 // Components
 import { useMap } from "react-leaflet";
 import {
@@ -18,15 +18,18 @@ import {
   RankInfo,
   SetBoundsRectangles,
   TileLayer,
-  TimeSlider,
+  TimeSlider
 } from "./import";
 // Data & Helpers
 import { getRasterLayer } from "@/api/georaster";
 import { demoTime } from "@/data/time-demo";
 import { isHighlightLayer, isRasterLayer } from "@/helper/utils";
+import type { ExternalProps, RasterData } from "@/types";
+import { LatLngExpression } from "leaflet";
 
 // Types
-import type { ExternalProps, RasterData } from "@/types";
+
+// const markerIcon = dynamic(() => import("@/components").then(mod => mod.markerIcon), { ssr: false });
 
 // Context definitions
 const TimeContext = createContext<{
@@ -42,7 +45,7 @@ const PrecipitationContext = createContext<{
 // External component with dynamic import
 const External = dynamic(
   () => {
-    const ExternalComponent = ({ toggle }: ExternalProps) => {
+    const ExternalComponent = ({ toggle, setPredictData, setPosition }: ExternalProps) => {
       const map = useMap();
       const [rasterLayer, setRasterLayer] = useState<RasterData>({
         layer: null,
@@ -68,7 +71,13 @@ const External = dynamic(
       return (
         <>
           <GeoTIFFLayer toggle={toggle.precipitation} map={map} georaster={rasterLayer} />
-          <HighlightRegion toggle={toggle.warn} time={time} map={map} />
+          <HighlightRegion
+            toggle={toggle.warn}
+            setPosition={setPosition}
+            setPredictData={setPredictData}
+            time={time}
+            map={map}
+          />
         </>
       );
     };
@@ -83,10 +92,11 @@ const LeafletMap = () => {
   const [time, setTime] = useState(0);
   const [precipitation, setPrecipitation] = useState<number>(0);
   const [toggle, setToggle] = useState({
-    precipitation: true,
-    warn: false,
+    precipitation: false,
+    warn: true,
   });
-
+  const [position, setPosition] = useState<LatLngExpression>([0, 0]);
+  const [predictData, setPredictData] = useState<number[]>([]);
   const handleTimeChange = useCallback((newTime: number) => {
     setTime(newTime);
   }, []);
@@ -119,8 +129,8 @@ const LeafletMap = () => {
     );
 
     return (
-      <div className="absolute right-0 z-[10000] mr-[1rem] h-[95vh]">
-        <div className="relative top-[4rem] float-right w-fit">
+      <>
+        <div className="absolute right-0 z-[10000] mr-[1rem] top-[4rem] float-right w-fit">
           <Popover
             content={<InfoTip />}
             style={{ padding: "2rem" }}
@@ -131,10 +141,11 @@ const LeafletMap = () => {
             <Button type="default" className="rounded-full" icon={<InfoOutlined />} />
           </Popover>
         </div>
-        <div className="relative top-[75%] float-right w-fit">
+
+        <div className="absolute right-0 z-[10000] bottom-[10vh] mr-[1rem] w-fit">
           <GradientScale toggle={toggle} />
         </div>
-      </div>
+      </>
     );
   });
   RightOverlayLayer.displayName = "RightOverlayLayer";
@@ -154,8 +165,50 @@ const LeafletMap = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <SetBoundsRectangles />
-          <MarkerGroup />
-          <External toggle={toggle} />
+          <External toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
+          <MarkerGroup position={position} predictData={predictData} time={time} />
+          {/* <Marker position={position} icon={markerIcon}>
+            <Popup className="bg-transparent w-[800px] h-[300]">
+              <h3 className="font-semibold text-lg text-center w-[800px]">
+                Predicted Precipitation
+              </h3>
+              <BarChart
+                xAxis={[
+                  {
+                    scaleType: "band",
+                    label: "Time (o'clock)",
+                    data: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24].map((el) =>
+                      el === time ? "Now" : `${el.toString().padStart(2, "0")}:00`,
+                    ),
+                  },
+                ]}
+                series={[
+                  {
+                    data: predictData,
+                    highlightScope: {
+                      highlight: "item",
+                      fade: "global",
+                    },
+                    valueFormatter: (value) => {
+                      return value !== null ? `${value} mm` : "0 mm";
+                    },
+                  },
+                ]}
+                highlightedItem={{
+                  dataIndex: 2,
+                }}
+                sx={{
+                  [`& .${axisClasses.left} .${axisClasses.label}`]: {
+                    transform: "translateX(-10px)",
+                  },
+                }}
+                yAxis={[{ label: "Precipitation (mm)" }]}
+                width={800}
+                height={300}
+                className="z-[100000]"
+              />
+            </Popup>
+          </Marker> */}
         </MapContainer>
         <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
       </PrecipitationContext.Provider>
