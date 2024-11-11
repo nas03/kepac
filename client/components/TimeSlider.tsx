@@ -38,7 +38,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
   }, [play, time, onTimeChange]);
   return (
     <>
-      <div className="flex flex-row w-screen h-[6vh] z-[1000000]">
+      <div className="flex flex-row items-center grow max-w-screen z-[1000000] ">
         <div className="flex flex-row px-3 items-center flex-shrink">
           <ArrowLeftIcon
             className="cursor-pointer"
@@ -81,9 +81,9 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
             max="14"
             value={initialTime}
             onChange={handleChange}
-            className="w-full m-0"
+            className="w-[95%] m-0"
           />
-          <datalist className="flex  flex-row justify-between m-0 w-full p=0">
+          <datalist className="flex  flex-row justify-between m-0 w-[95%] p-0">
             {steps.map((step: number, index: number) => (
               <option className="p-0" value={step} key={index}>
                 {step === 9

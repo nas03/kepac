@@ -155,20 +155,27 @@ const LeafletMap = () => {
       <OverlayLayer />
       <RightOverlayLayer />
       <PrecipitationContext.Provider value={{ precipitation, setPrecipitation }}>
-        <MapContainer
-          center={[17.9459, 105.97]}
-          zoom={7}
-          style={{ width: "100vw", height: "94vh" }}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <SetBoundsRectangles />
-          <External toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
-          <MarkerGroup position={position} predictData={predictData} />
-        </MapContainer>
-        <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
+        <div className="flex flex-col w-screen h-screen">
+          <div className="w-screen h-[90%]">
+            <MapContainer
+              center={[17.9459, 105.97]}
+              zoom={7}
+              style={{
+                width: "100vw",
+                height: "100%",
+              }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <SetBoundsRectangles />
+              <External toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
+              <MarkerGroup position={position} predictData={predictData} />
+            </MapContainer>
+          </div>
+          <TimeSlider onTimeChange={handleTimeChange} initialTime={time} />
+        </div>
       </PrecipitationContext.Provider>
     </TimeContext.Provider>
   );
