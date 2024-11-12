@@ -4,16 +4,15 @@ import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCallback, useState } from "react";
 // Components
-import { MapContainer } from "react-leaflet";
+// import { MapContainer } from "react-leaflet";
 import {
   ExternalLayer,
-  // MapContainer,
+  MapContainer,
   MarkerGroup,
   RightOverlayLayer,
   TileLayer,
   TimeSlider
 } from "./import";
-// Context
 import { PrecipitationContext, TimeContext } from "@/context/context";
 
 // Main component
