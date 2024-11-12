@@ -33,6 +33,7 @@ const getGeoTIFF = async (req: Request, res: Response) => {
 			}
 
 			// set Header for TIFF file
+			res.setHeader('Cache-Control', 'public, max-age=31536000');
 			res.setHeader('Content-Type', 'image/tiff');
 			res.setHeader(
 				'Content-Disposition',
@@ -40,6 +41,14 @@ const getGeoTIFF = async (req: Request, res: Response) => {
 			);
 
 			const fileStream = fs.createReadStream(filePath);
+			fileStream.on('error', (streamErr) => {
+				console.error('Stream error:', streamErr);
+				res.status(500).json({
+					status: 'error',
+					message: 'File stream error',
+					data: null,
+				});
+			});
 			fileStream.pipe(res);
 		});
 	} catch (error) {

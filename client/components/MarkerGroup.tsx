@@ -41,20 +41,20 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }
         })}
       >
         <Popup className="bg-transparent w-[800px] h-[300]">
-          <h3 className="font-semibold text-lg text-center w-[800px]">Predicted Precipitation</h3>
+          <h3 className="font-semibold text-lg text-center w-[800px]">Rainfall Forecast Chart</h3>
           <BarChart
             xAxis={[
               {
                 scaleType: "band",
                 data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
-                  el === 12
+                  el === 9
                     ? `${el.toString().padStart(2, "0")}:00 \n (Now)`
                     : `${el.toString().padStart(2, "0")}:00`,
                 ),
                 colorMap: {
                   type: "ordinal",
                   colors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
-                    el > 12 ? "#08589e" : '#4eb3d3',
+                    el > 9 ? "#08589e" : '#4eb3d3',
                   ),
                 },
               },
@@ -79,7 +79,7 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }
                 transform: "translateX(-10px)",
               },
             }}
-            yAxis={[{ label: "Precipitation (mm)" }]}
+            yAxis={[{ label: "Rainfall (mm)" }]}
             width={800}
             height={300}
             className="z-[100000]"

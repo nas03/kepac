@@ -18,7 +18,7 @@ import { PrecipitationContext, TimeContext } from "@/context/context";
 
 // Main component
 const LeafletMap = () => {
-  const [time, setTime] = useState(12);
+  const [time, setTime] = useState(9);
   const [precipitation, setPrecipitation] = useState<number>(0);
   const [position, setPosition] = useState<LatLngExpression>([0, 0]);
   const [predictData, setPredictData] = useState<number[]>([]);
