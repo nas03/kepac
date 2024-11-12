@@ -4,13 +4,12 @@ import { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useCallback, useState } from "react";
 // Components
-// import { MapContainer } from "react-leaflet";
+import { MapContainer } from "react-leaflet";
 import {
   ExternalLayer,
-  MapContainer,
+  // MapContainer,
   MarkerGroup,
   RightOverlayLayer,
-  SetBoundsRectangles,
   TileLayer,
   TimeSlider
 } from "./import";
@@ -19,7 +18,7 @@ import { PrecipitationContext, TimeContext } from "@/context/context";
 
 // Main component
 const LeafletMap = () => {
-  const [time, setTime] = useState(9);
+  const [time, setTime] = useState(12);
   const [precipitation, setPrecipitation] = useState<number>(0);
   const [position, setPosition] = useState<LatLngExpression>([0, 0]);
   const [predictData, setPredictData] = useState<number[]>([]);
@@ -54,7 +53,7 @@ const LeafletMap = () => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
-              <SetBoundsRectangles />
+              {/* <SetBoundsRectangles /> */}
               <ExternalLayer
                 toggle={toggle}
                 setPosition={setPosition}
