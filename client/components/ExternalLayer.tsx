@@ -1,5 +1,4 @@
 "use client";
-
 import { getRasterLayer } from "@/api";
 import { TimeContext } from "@/context/context";
 import { demoTime } from "@/data/time-demo";
@@ -22,47 +21,25 @@ interface IExternalLayerProps {
 
 const ExternalLayer: React.FC<IExternalLayerProps> = ({ toggle, setPredictData, setPosition }) => {
   const map = useMap();
-  const { time } = useContext(TimeContext)!;
   const [rasterLayer, setRasterLayer] = useState<RasterData>({
     layer: null,
     georaster: null,
   });
+  const { time } = useContext(TimeContext)!;
 
   useEffect(() => {
     getRasterLayer(demoTime[time]).then(setRasterLayer);
-
-    const cleanup = () => {
-      map.eachLayer((layer) => {
-        if (isRasterLayer(layer)) {
-          map.removeLayer(layer);
-        }
-      });
-    };
-
-    return cleanup;
-  }, [time, map]);
+  }, [time]);
 
   useEffect(() => {
-    const cleanup = () => {
-      map.eachLayer((layer) => {
-        if (!toggle.precipitation && isRasterLayer(layer)) {
-          map.removeLayer(layer);
-        }
-        if (!toggle.warn && isHighlightLayer(layer)) {
-          map.removeLayer(layer);
-        }
-      });
-    };
-
-    cleanup();
-
-    return () => {
-      map.eachLayer((layer) => {
-        if (isRasterLayer(layer) || isHighlightLayer(layer)) {
-          map.removeLayer(layer);
-        }
-      });
-    };
+    map.eachLayer((layer) => {
+      if (!toggle.precipitation && isRasterLayer(layer)) {
+        map.removeLayer(layer);
+      }
+      if (!toggle.warn && isHighlightLayer(layer)) {
+        map.removeLayer(layer);
+      }
+    });
   }, [toggle, map]);
 
   return (
