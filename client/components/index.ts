@@ -5,16 +5,16 @@ import GeoTIFFLayer from "./GeoTIFFLayer";
 import HighlightRegion from "./HighlightRegion";
 import InfoTip from "./InfoTip.tsx";
 import MarkerGroup from "./MarkerGroup.tsx";
-import { icon as markerIcon } from "./MarkerIcon.tsx";
+
 import RightOverlayLayer from "./RightOverlayLayer.tsx";
 import SetBoundsRectangles from "./SetBoundsRectangles.tsx";
 
 export {
-    ExternalLayer, GeoTIFFLayer,
+    ExternalLayer,
+    GeoTIFFLayer,
     HighlightRegion,
     InfoTip,
     MarkerGroup,
-    markerIcon,
     RankInfo,
     RightOverlayLayer,
     SetBoundsRectangles,
