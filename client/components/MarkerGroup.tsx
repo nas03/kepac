@@ -54,7 +54,7 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }
                 colorMap: {
                   type: "ordinal",
                   colors: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
-                    el > 9 ? "#08589e" : '#4eb3d3',
+                    el > 12 ? "#08589e" : '#4eb3d3',
                   ),
                 },
               },
