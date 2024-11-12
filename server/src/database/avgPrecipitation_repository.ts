@@ -6,7 +6,6 @@ export const getMedianPrecipitation = async (time: string) => {
 		.select('*')
 		.where({
 			time: time,
-			geo_type: 'District',
 		})
 		.andWhere('avg_precipitation', '>', 0.2)
 		.orderBy('avg_precipitation', 'desc'); // Correct way to add comparison
