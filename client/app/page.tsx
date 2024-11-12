@@ -12,7 +12,7 @@ import {
   RightOverlayLayer,
   SetBoundsRectangles,
   TileLayer,
-  TimeSlider,
+  TimeSlider
 } from "./import";
 // Context
 import { PrecipitationContext, TimeContext } from "@/context/context";

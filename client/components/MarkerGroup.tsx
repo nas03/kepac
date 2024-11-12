@@ -47,7 +47,7 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }
               {
                 scaleType: "band",
                 data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((el) =>
-                  el === 9
+                  el === 12
                     ? `${el.toString().padStart(2, "0")}:00 \n (Now)`
                     : `${el.toString().padStart(2, "0")}:00`,
                 ),

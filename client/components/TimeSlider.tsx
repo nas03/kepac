@@ -87,7 +87,7 @@ const TimeSlider = ({ onTimeChange, initialTime }: TimeSliderProps) => {
           <datalist className="flex  flex-row justify-between m-0 w-full p-0">
             {steps.map((step: number, index: number) => (
               <option className="p-0" value={step} key={index}>
-                {step === 9
+                {step === 12
                   ? `${step.toString().padStart(2, "0")}:00 (Now)`
                   : `${step.toString().padStart(2, "0")}:00`}
               </option>
