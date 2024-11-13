@@ -5,15 +5,9 @@ import "leaflet/dist/leaflet.css";
 import { useCallback, useState } from "react";
 // Components
 // import { MapContainer } from "react-leaflet";
-import {
-  ExternalLayer,
-  MapContainer,
-  MarkerGroup,
-  RightOverlayLayer,
-  TileLayer,
-  TimeSlider
-} from "./import";
+
 import { PrecipitationContext, TimeContext } from "@/context/context";
+import { ExternalLayer, MapContainer, MarkerGroup, RightOverlayLayer, TileLayer, TimeSlider } from "./import";
 
 // Main component
 const LeafletMap = () => {
@@ -41,6 +35,7 @@ const LeafletMap = () => {
         <div className="flex flex-col w-screen h-screen">
           <div className="w-screen h-[90%]">
             <MapContainer
+              preferCanvas={true}
               center={[17.9459, 105.97]}
               zoom={7}
               style={{
@@ -53,11 +48,7 @@ const LeafletMap = () => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               {/* <SetBoundsRectangles /> */}
-              <ExternalLayer
-                toggle={toggle}
-                setPosition={setPosition}
-                setPredictData={setPredictData}
-              />
+              <ExternalLayer toggle={toggle} setPosition={setPosition} setPredictData={setPredictData} />
               <MarkerGroup position={position} predictData={predictData} />
             </MapContainer>
           </div>
