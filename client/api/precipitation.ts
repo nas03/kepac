@@ -28,9 +28,9 @@ export const getAvgPrecipitationByLocation = async ({
         province: province,
       },
     });
-    const data = (response.data.data as PrecipitationRecord[]).map(
-      (record) => record.avg_precipitation,
-    );
+
+    const data = (response.data.data as PrecipitationRecord[]).map((record) => record.avg_precipitation);
+
     return data;
   } catch (error) {
     console.log(error);

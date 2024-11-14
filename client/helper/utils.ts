@@ -41,9 +41,13 @@ export const isHighlightLayer = (layer: unknown): layer is HighlightLayer => {
 };
 
 export const removeVietnameseAccents = (str: string) => {
-	return str
-		.normalize('NFD')
-		.replace(/[\u0300-\u036f]/g, '')
-		.replace(/đ/g, 'd')
-		.replace(/Đ/g, 'D');
-}
+  return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D");
+};
+
+export const sanitizeData = (data: number[]) => {
+  return data.map((el) => (el < 0 ? 0 : el));
+};

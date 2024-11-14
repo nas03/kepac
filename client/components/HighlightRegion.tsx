@@ -1,7 +1,7 @@
 import { getAvgPrecipitation, getAvgPrecipitationByLocation } from "@/api";
 import { vnDistrict } from "@/data/district";
 import { demoTime } from "@/data/time-demo";
-import { removeVietnameseAccents } from "@/helper/utils";
+import { removeVietnameseAccents, sanitizeData } from "@/helper/utils";
 import { PrecipitationRecord } from "@/types";
 import geojson, { FeatureCollection } from "geojson";
 import L, { LatLngExpression } from "leaflet";
@@ -57,7 +57,8 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle, s
       district_code: district_code,
       province: province,
     });
-    setPredictData(predictedPrecipitation);
+    const sanitizedData = sanitizeData(predictedPrecipitation);
+    setPredictData(sanitizedData);
     setPosition([e.latlng.lat, e.latlng.lng]);
     return null;
   };

@@ -67,7 +67,7 @@ const MarkerGroup: React.FC<IPropsMarkerGroupProps> = ({ position, predictData }
                   fade: "global",
                 },
                 valueFormatter: (value) => {
-                  return value !== null ? `${value.toFixed(3)} mm` : "0 mm";
+                  return (value !== null && value > 0) ? `${value.toFixed(3)} mm` : "0 mm";
                 },
               },
             ]}

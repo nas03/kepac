@@ -88,24 +88,35 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle, setZoomPos
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredData.map((el, index) => (
-                      <tr
-                        key={el.id}
-                        onClick={() => setZoomPosition(removeVietnameseAccents(el?.district_name), removeVietnameseAccents(el?.province_name))}
-                        className="hover:bg-slate-200 cursor-pointer"
-                      >
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">{index + 1}</td>
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left  text-xs font-semibold">
-                          {el?.district_name}
-                        </td>
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left text-xs font-semibold">
-                          {el?.province_name}
-                        </td>
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-sm">
-                          {Number(el?.avg_precipitation).toFixed(2)} mm
-                        </td>
-                      </tr>
-                    ))}
+                    {filteredData.map((el, index) => {
+                      if (Number(Number(el?.avg_precipitation).toFixed(2)) > 0) {
+                        return (
+                          <tr
+                            key={el.id}
+                            onClick={() =>
+                              setZoomPosition(
+                                removeVietnameseAccents(el?.district_name),
+                                removeVietnameseAccents(el?.province_name),
+                              )
+                            }
+                            className="hover:bg-slate-200 cursor-pointer"
+                          >
+                            <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
+                              {index + 1}
+                            </td>
+                            <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left  text-xs font-semibold">
+                              {el?.district_name}
+                            </td>
+                            <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left text-xs font-semibold">
+                              {el?.province_name}
+                            </td>
+                            <td className="w-fit border-b-2 border-b-gray-100 p-3 text-sm">
+                              {Number(el?.avg_precipitation).toFixed(2)} mm
+                            </td>
+                          </tr>
+                        );
+                      }
+                    })}
                   </tbody>
                 </table>
               </div>

@@ -7,16 +7,7 @@ import { useCallback, useState } from "react";
 // import { MapContainer } from "react-leaflet";
 
 import { PrecipitationContext, TimeContext } from "@/context/context";
-import {
-  ExternalLayer,
-  MapContainer,
-  // /* MapContainer, */
-  MarkerGroup,
-  RightOverlayLayer,
-  TileLayer,
-  TimeSlider,
-  Zoom,
-} from "./import";
+import { ExternalLayer, MapContainer, MarkerGroup, RightOverlayLayer, TileLayer, TimeSlider, Zoom } from "./import";
 
 // Main component
 const LeafletMap = () => {
@@ -31,7 +22,6 @@ const LeafletMap = () => {
   });
 
   const setZoomPosition = useCallback((district: string, province: string) => {
-    console.log(district, province);
     setZoom([district, province]);
   }, []);
   const handleTimeChange = useCallback((newTime: number) => {
