@@ -24,6 +24,7 @@ export const getAvgPrecipitationByLocation = async (district_code: string) => {
     .where({
       district_code: district_code,
     })
+    .andWhere("avg_precipitation", ">", "0")
     .orderBy("time", "asc");
   return query;
 };
