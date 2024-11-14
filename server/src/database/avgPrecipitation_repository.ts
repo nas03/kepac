@@ -7,7 +7,7 @@ export const getMedianPrecipitation = async (time: string) => {
     .where({
       time: time,
     })
-    .andWhere("avg_precipitation", ">", 0.2)
+    .andWhere("avg_precipitation", ">", 0)
     .orderBy("avg_precipitation", "desc");
   return query;
 };
@@ -24,7 +24,7 @@ export const getAvgPrecipitationByLocation = async (district_code: string) => {
     .where({
       district_code: district_code,
     })
-    .andWhere("avg_precipitation", ">", "0")
+    .andWhere("avg_precipitation", ">", 0)
     .orderBy("time", "asc");
   return query;
 };
