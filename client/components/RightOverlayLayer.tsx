@@ -11,9 +11,10 @@ interface IRightOverlayLayerProps {
     precipitation: boolean;
     warn: boolean;
   };
+  setZoomPosition: (district: string, province: string) => void;
   handleToggleLayer: (newToggle: { precipitation?: boolean; warn?: boolean }) => void;
 }
-const RightOverlayLayer: React.FC<IRightOverlayLayerProps> = ({ toggle, handleToggleLayer }) => {
+const RightOverlayLayer: React.FC<IRightOverlayLayerProps> = ({ toggle, handleToggleLayer, setZoomPosition }) => {
   const Header = () => (
     <>
       <h1 className="text-xl font-bold">Chú thích</h1>
@@ -41,7 +42,7 @@ const RightOverlayLayer: React.FC<IRightOverlayLayerProps> = ({ toggle, handleTo
         <GradientScale toggle={toggle} />
       </div>
       <div className="absolute z-[10000] ml-[5rem] mt-[1rem]">
-        <RankInfo toggle={toggle} onToggle={handleToggleLayer} time={time} />
+        <RankInfo setZoomPosition={setZoomPosition} toggle={toggle} onToggle={handleToggleLayer} time={time} />
       </div>
     </>
   );

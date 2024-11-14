@@ -6,7 +6,13 @@ To install dependencies:
 bun install
 ```
 
-To run:
+## To load dataset:
+
+1. Run avg_precipitation.py script
+2. Load excel file to database
+3. Add GeoTiff image files to assets/geotiff
+
+## To run:
 
 ```bash
 bun run src/server.js

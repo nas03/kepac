@@ -13,13 +13,7 @@ interface IPropsHighlightRegion {
   setPredictData: (data: number[]) => void;
   setPosition: (data: LatLngExpression) => void;
 }
-const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
-  map,
-  time,
-  toggle,
-  setPredictData,
-  setPosition,
-}) => {
+const HighlightRegion: React.FC<IPropsHighlightRegion> = ({ map, time, toggle, setPredictData, setPosition }) => {
   const [data, setData] = useState<PrecipitationRecord[]>([]);
 
   useEffect(() => {
@@ -37,11 +31,10 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
     };
   }, [time]);
 
-  function getColor(district: string, province: string) {
+  const getColor = (district: string, province: string) => {
     if (data.length === 0) return null;
     const precipitation = data.find(
-      (el) =>
-        el.district_code === district && removeVietnameseAccents(el.province_name) === province,
+      (el) => el.district_code === district && removeVietnameseAccents(el.province_name) === province,
     )?.avg_precipitation;
 
     if (!precipitation || precipitation <= 0.2) return null;
@@ -49,7 +42,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
     if (precipitation <= 5) return "#49a43a";
     if (precipitation <= 30) return "#993839";
     if (precipitation > 30) return "#a33782";
-  }
+  };
 
   const showDiagram = async (e: L.LeafletMouseEvent, layer: L.GeoJSON) => {
     if ((layer.feature as geojson.Feature)?.properties === null) {
@@ -69,13 +62,13 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
     return null;
   };
 
-  function onFeature(feature: geojson.Feature, layer: L.GeoJSON) {
+  const onFeature = (feature: geojson.Feature, layer: L.GeoJSON) => {
     layer.on({
       click: (e) => showDiagram(e, layer),
     });
-  }
+  };
 
-  function style(feature: geojson.Feature | undefined) {
+  const style = (feature: geojson.Feature | undefined) => {
     const color = getColor(feature?.properties?.District, feature?.properties?.Province);
     if (!color) {
       return {
@@ -94,7 +87,7 @@ const HighlightRegion: React.FC<IPropsHighlightRegion> = ({
       fillOpacity: 0.5,
       fillColor: color,
     };
-  }
+  };
 
   const addGeoJsonLayer = () => {
     map.eachLayer((layer) => {

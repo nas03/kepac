@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 
+// React-leaflet
 export const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), {
   ssr: false,
 });
-
 export const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), {
   ssr: false,
 });
@@ -14,26 +14,24 @@ export const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Pop
   ssr: false,
 });
 
-export const GeoTIFFLayer = dynamic(() => import("@/components").then((mod) => mod.GeoTIFFLayer), {
+// Components
+export const GeoTIFFLayer = dynamic(() => import("@/components/GeoTIFFLayer"), {
   ssr: false,
 });
 
-export const HighlightRegion = dynamic(
-  () => import("@/components").then((mod) => mod.HighlightRegion),
-  {
-    ssr: false,
-  },
-);
-
-export const InfoTip = dynamic(() => import("@/components").then((mod) => mod.InfoTip), {
+export const HighlightRegion = dynamic(() => import("@/components/HighlightRegion"), {
   ssr: false,
 });
 
-export const RankInfo = dynamic(() => import("@/components").then((mod) => mod.RankInfo), {
+export const InfoTip = dynamic(() => import("@/components/InfoTip"), {
   ssr: false,
 });
 
-export const TimeSlider = dynamic(() => import("@/components").then((mod) => mod.TimeSlider), {
+export const RankInfo = dynamic(() => import("@/components/RankInfo"), {
+  ssr: false,
+});
+
+export const TimeSlider = dynamic(() => import("@/components/TimeSlider"), {
   ssr: false,
 });
 
@@ -54,5 +52,8 @@ export const RightOverlayLayer = dynamic(() => import("@/components/RightOverlay
 });
 
 export const ExternalLayer = dynamic(() => import("@/components/ExternalLayer"), {
+  ssr: false,
+});
+export const Zoom = dynamic(() => import("@/components/Zoom"), {
   ssr: false,
 });

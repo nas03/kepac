@@ -1,6 +1,6 @@
 import { getAvgPrecipitation } from "@/api/precipitation.ts";
 import { demoTime } from "@/data/time-demo.ts";
-import { formatToDate } from "@/helper/utils.ts";
+import { formatToDate, removeVietnameseAccents } from "@/helper/utils.ts";
 import { PrecipitationRecord } from "@/types";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,12 +11,13 @@ import React, { useEffect, useState } from "react";
 interface IPropsRankInfo {
   time: number;
   onToggle: (newToggle: { precipitation?: boolean; warn?: boolean }) => void;
+  setZoomPosition: (district: string, province: string) => void;
   toggle: {
     precipitation: boolean;
     warn: boolean;
   };
 }
-const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
+const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle, setZoomPosition }) => {
   const [data, setData] = useState<PrecipitationRecord[]>([]);
   const [filteredData, setFilteredData] = useState<PrecipitationRecord[]>(data);
 
@@ -69,14 +70,8 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
         </div>
         <div>
           <Accordion defaultExpanded>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
-            >
-              <h2 className="text-center font-bold uppercase">
-                Xếp hạng theo quận ({formatToDate(demoTime[time])})
-              </h2>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1-content" id="panel1-header">
+              <h2 className="text-center font-bold uppercase">Xếp hạng theo quận ({formatToDate(demoTime[time])})</h2>
             </AccordionSummary>
             <AccordionDetails>
               {/* Set a fixed height and enable scrolling here */}
@@ -85,12 +80,8 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                   <thead className="sticky top-0 bg-white text-sm">
                     <tr>
                       <th className="border-b-2 border-b-gray-100 p-2 text-left text-black">#</th>
-                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">
-                        Địa điểm
-                      </th>
-                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">
-                        Tỉnh
-                      </th>
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">Địa điểm</th>
+                      <th className="border-b-2 border-b-gray-100 p-2 text-left uppercase text-black">Tỉnh</th>
                       <th className="border-b-2 border-b-gray-100 p-2 text-left font-sans uppercase text-black">
                         Lượng mưa
                       </th>
@@ -98,10 +89,12 @@ const RankInfo: React.FC<IPropsRankInfo> = ({ time, onToggle, toggle }) => {
                   </thead>
                   <tbody>
                     {filteredData.map((el, index) => (
-                      <tr key={el.id}>
-                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">
-                          {index + 1}
-                        </td>
+                      <tr
+                        key={el.id}
+                        onClick={() => setZoomPosition(removeVietnameseAccents(el?.district_name), removeVietnameseAccents(el?.province_name))}
+                        className="hover:bg-slate-200 cursor-pointer"
+                      >
+                        <td className="w-fit border-b-2 border-b-gray-100 p-3 text-xs font-semibold">{index + 1}</td>
                         <td className="w-fit border-b-2 border-b-gray-100 p-3 text-left  text-xs font-semibold">
                           {el?.district_name}
                         </td>
