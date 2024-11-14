@@ -16,15 +16,16 @@ const getGeoTIFF = async (req: Request, res: Response) => {
         data: null,
       });
     }
-    const geoTIFFFile = await precipitationRepository.getGeoTIFFFile(time);
+    /* const geoTIFFFile = await precipitationRepository.getGeoTIFFFile(time);
     if (!geoTIFFFile) {
       return res.status(200).json({
         status: "success",
         message: null,
         data: null,
       });
-    }
-    const filePath = `assets/geotiff/${geoTIFFFile.file_name}`;
+    } */
+    const file_name = timeToFilename(time);
+    const filePath = `assets/geotiff/${file_name}`;
     fs.stat(filePath, (err, stats) => {
       if (err) {
         console.error("File not found", err);
@@ -38,7 +39,7 @@ const getGeoTIFF = async (req: Request, res: Response) => {
       // set Header for TIFF file
       res.setHeader("Cache-Control", "public, max-age=31536000");
       res.setHeader("Content-Type", "image/tiff");
-      res.setHeader("Content-Disposition", `attachment; filename=${geoTIFFFile.file_name}`);
+      res.setHeader("Content-Disposition", `attachment; filename=${file_name}`);
 
       const fileStream = fs.createReadStream(filePath);
       fileStream.on("error", (streamErr) => {
