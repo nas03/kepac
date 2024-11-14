@@ -1,7 +1,7 @@
-import cors from 'cors';
-import express from 'express';
-import morgan from 'morgan';
-import routes from './api/routes';
+import cors from "cors";
+import express from "express";
+import morgan from "morgan";
+import routes from "./api/routes";
 
 const PORT = process.env.PORT || 5500;
 const server = express();
@@ -10,10 +10,10 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use(morgan('dev'));
+server.use(morgan("dev"));
 // config api
-server.use('/api', routes);
+server.use("/api", routes);
 
 server.listen(PORT, () => {
-	console.log(`[⚡️server]: Server is running on http://localhost:${PORT}`);
+  console.log(`[⚡️server]: Server is running on http://localhost:${PORT}`);
 });
