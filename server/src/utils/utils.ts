@@ -21,6 +21,7 @@ export const getTimeInfoFromFilename = (filename: string) => {
   );
 };
 
+import { AvgPrecipitation } from "@/types";
 import { exec } from "child_process";
 import path from "path";
 
@@ -94,6 +95,20 @@ export const timeToFilename = (time: string) => {
   filename += hour.split(".")[0].replaceAll(":", "");
   return filename + ".tif";
 };
-// executeSqlFile(
-// 	'/Users/anhson/Documents/Projects/kepac/server/assets/sql/output.sql'
-// );
+
+export const redisKey = (keys: string[]) => {
+  return keys.join(":");
+};
+export const getHour = (time: Date) => {
+  return Number(time.toTimeString().split(" ")[0].split(":")[0]);
+};
+export const sanitizeData = (data: AvgPrecipitation[]) => {
+  const hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+  const result: any[] = [];
+  const dummyData = { ...data[0] };
+  hours.forEach((hour) => {
+    const temp = data.find((el) => getHour(el.time) === hour);
+    temp ? result.push(temp) : result.push({ ...dummyData, time: hour, avg_precipitation: 0 });
+  });
+  return result;
+};
